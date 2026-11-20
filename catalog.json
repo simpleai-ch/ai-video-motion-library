@@ -2,13 +2,13 @@
   "version": 1,
   "fields": {
     "category": "opener 开头 | middle 中间 | closer 结尾",
-    "source": "own 自己做过/用过 | reference 参考别人的",
+    "source": "own 自己做过/用过（mine/） | reference 参考别人的（references/）",
     "status": "idea 只有参考素材 | recreated 已复刻可用 | used 已在自己视频中使用"
   },
   "effects": [
     {
       "id": "middle-ai-editor-network",
-      "path": "middles/ai-editor-network",
+      "path": "references/middles/ai-editor-network",
       "name": "AI剪辑器 · 关系网络",
       "category": "middle",
       "source": "reference",
