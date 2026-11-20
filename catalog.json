@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "fields": {
+    "category": "opener 开头 | middle 中间 | closer 结尾",
+    "source": "own 自己做过/用过 | reference 参考别人的",
+    "status": "idea 只有参考素材 | recreated 已复刻可用 | used 已在自己视频中使用"
+  },
+  "effects": [
+    {
+      "id": "middle-ai-editor-network",
+      "path": "middles/ai-editor-network",
+      "name": "AI剪辑器 · 关系网络",
+      "category": "middle",
+      "source": "reference",
+      "status": "recreated",
+      "duration_seconds": 13,
+      "tags": ["暗黑科技", "MG动画", "软件界面", "关系网络", "信息图", "口播辅助", "AI工具"],
+      "summary": "黑底网格+红黄蓝点缀的软件界面式MG，讲多方连接多平台的关系结构。"
+    }
+  ]
+}
