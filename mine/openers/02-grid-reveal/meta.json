@@ -1,0 +1,37 @@
+{
+  "id": "motion-02",
+  "number": "02",
+  "aliases": [
+    "02",
+    "M02",
+    "九宫格展开与相框掉落"
+  ],
+  "name": "九宫格展开与相框掉落",
+  "path": "mine/openers/02-grid-reveal",
+  "category": "opener",
+  "source": "own",
+  "status": "used",
+  "engine": "python",
+  "duration_seconds": 7.333333333333333,
+  "width": 2688,
+  "height": 1512,
+  "fps": 30,
+  "tags": [
+    "九宫格",
+    "相框掉落",
+    "原生高清"
+  ],
+  "required_inputs": [
+    "封面照片和标题",
+    "9路格子视频",
+    "5路整画面片段"
+  ],
+  "editable_fields": "cover, cover_crop, title, title_position, center_title, clips, audio, grid_lines",
+  "used_in": "联发集团最终修订版",
+  "provenance": "联发集团最终修订版",
+  "preview": "preview.mp4",
+  "cover": "cover.jpg",
+  "config": "config.json",
+  "entrypoint": "render.py",
+  "summary": "九宫格展开与相框掉落；复制为实例后替换素材导出。"
+}

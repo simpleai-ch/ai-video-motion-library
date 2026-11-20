@@ -1,0 +1,36 @@
+{
+  "id": "motion-27",
+  "number": "27",
+  "aliases": [
+    "27",
+    "M27",
+    "黑底打字文案与照片胶片条"
+  ],
+  "name": "黑底打字文案与照片胶片条",
+  "path": "mine/closers/27-filmstrip-typewriter",
+  "category": "closer",
+  "source": "own",
+  "status": "used",
+  "engine": "python",
+  "duration_seconds": 3.6,
+  "width": 2688,
+  "height": 1512,
+  "fps": 30,
+  "tags": [
+    "打字机",
+    "胶片",
+    "照片滚动"
+  ],
+  "required_inputs": [
+    "两行收尾文案",
+    "照片列表"
+  ],
+  "editable_fields": "lines, photos, film_top, film_bottom, font, audio",
+  "used_in": "联发集团原生高清结尾",
+  "provenance": "联发集团原生高清结尾",
+  "preview": "preview.mp4",
+  "cover": "cover.jpg",
+  "config": "config.json",
+  "entrypoint": "render.py",
+  "summary": "黑底打字文案与照片胶片条；复制为实例后替换素材导出。"
+}

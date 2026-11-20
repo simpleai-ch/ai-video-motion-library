@@ -1,0 +1,101 @@
+{
+  "entries": [
+    {
+      "number": "01",
+      "status": "independent_render_passed",
+      "stream": {
+        "width": 1080,
+        "height": 1920,
+        "r_frame_rate": "30/1",
+        "duration": "5.200000",
+        "nb_frames": "156",
+        "side_data_list": [
+          {}
+        ]
+      },
+      "full_decode": "passed",
+      "config_sha256": "7ec02d2af9ea811dae248fa7c4fe0423cf24c8f81642bef4596129ec02fa4a30"
+    },
+    {
+      "number": "02",
+      "status": "independent_render_passed",
+      "stream": {
+        "width": 2688,
+        "height": 1512,
+        "r_frame_rate": "30/1",
+        "duration": "7.333333",
+        "nb_frames": "220"
+      },
+      "full_decode": "passed",
+      "config_sha256": "434f0a5b59cd067a653197abd4262f9072ef34a1491f351f3219a166478f2e21"
+    },
+    {
+      "number": "05",
+      "status": "independent_render_passed",
+      "stream": {
+        "width": 1080,
+        "height": 1920,
+        "r_frame_rate": "30/1",
+        "duration": "4.000000",
+        "nb_frames": "120",
+        "side_data_list": [
+          {}
+        ]
+      },
+      "full_decode": "passed",
+      "config_sha256": "b7eafcc35235f74d2871a7c6c21d7cb0f3d1d2dc27861f1cdb821abe480d70a5"
+    },
+    {
+      "number": "17",
+      "status": "independent_render_passed",
+      "stream": {
+        "width": 1080,
+        "height": 1920,
+        "r_frame_rate": "30/1",
+        "duration": "9.466667",
+        "nb_frames": "284",
+        "side_data_list": [
+          {}
+        ]
+      },
+      "full_decode": "passed",
+      "config_sha256": "2cfc965f0b3bade8c12f736502a03ddb0e3b12147ca3becd2d9e2a25c1449333"
+    },
+    {
+      "number": "26",
+      "status": "independent_render_passed",
+      "stream": {
+        "width": 1080,
+        "height": 1920,
+        "r_frame_rate": "30/1",
+        "duration": "4.466667",
+        "nb_frames": "134",
+        "side_data_list": [
+          {}
+        ]
+      },
+      "full_decode": "passed",
+      "config_sha256": "a5fc67f4b24c93f0a3dc4e6f46083354efb73e7a12d654459fdf372cc10ce507"
+    },
+    {
+      "number": "27",
+      "status": "independent_render_passed",
+      "stream": {
+        "width": 2688,
+        "height": 1512,
+        "r_frame_rate": "30/1",
+        "duration": "3.600000",
+        "nb_frames": "108"
+      },
+      "full_decode": "passed",
+      "config_sha256": "adc8ff6492d9a6e80b71f8965954e362cd0ca4582fd903591be0a08e80bc49b9"
+    },
+    {
+      "number": "32",
+      "status": "reference_only",
+      "preview_present": true
+    }
+  ],
+  "existing_entries_preserved": 1,
+  "no_skill_installation_required": true
+}

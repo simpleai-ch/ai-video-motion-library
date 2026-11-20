@@ -1,0 +1,1 @@
+window.MOTION_CONFIG={"motion_id": "32", "engine": "reference", "text": "待替换标题", "width": 1280, "height": 720, "fps": 30, "duration_frames": 54};

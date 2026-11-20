@@ -1,0 +1,9 @@
+node_modules/
+instances/
+**/__pycache__/
+**/check-*.jpg
+**/rendered*.mp4
+.DS_Store
+
+**/opening-*-native.png
+**/source-check.jpg

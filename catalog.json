@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "fields": {
     "category": "opener 开头 | middle 中间 | closer 结尾",
     "source": "own 自己做过/用过（mine/） | reference 参考别人的（references/）",
@@ -14,8 +14,272 @@
       "source": "reference",
       "status": "recreated",
       "duration_seconds": 13,
-      "tags": ["暗黑科技", "MG动画", "软件界面", "关系网络", "信息图", "口播辅助", "AI工具"],
+      "tags": [
+        "暗黑科技",
+        "MG动画",
+        "软件界面",
+        "关系网络",
+        "信息图",
+        "口播辅助",
+        "AI工具"
+      ],
       "summary": "黑底网格+红黄蓝点缀的软件界面式MG，讲多方连接多平台的关系结构。"
+    },
+    {
+      "id": "motion-01",
+      "number": "01",
+      "aliases": [
+        "01",
+        "M01",
+        "工具榜单快闪与卡片归位"
+      ],
+      "name": "工具榜单快闪与卡片归位",
+      "path": "mine/openers/01-ranking-flash",
+      "category": "opener",
+      "source": "own",
+      "status": "used",
+      "engine": "browser",
+      "duration_seconds": 5.2,
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "tags": [
+        "快闪",
+        "排名",
+        "卡片归位"
+      ],
+      "required_inputs": [
+        "10张图片和对应名称/编号",
+        "可选人物视频",
+        "新口播音频与字幕"
+      ],
+      "editable_fields": "items, heading, subheading, captions, presenter, show_presenter, audio, timing",
+      "used_in": "工具榜单v10",
+      "provenance": "工具榜单v10",
+      "preview": "preview.mp4",
+      "cover": "cover.jpg",
+      "config": "config.json",
+      "entrypoint": "index.html",
+      "summary": "工具榜单快闪与卡片归位；复制为实例后替换素材导出。"
+    },
+    {
+      "id": "motion-02",
+      "number": "02",
+      "aliases": [
+        "02",
+        "M02",
+        "九宫格展开与相框掉落"
+      ],
+      "name": "九宫格展开与相框掉落",
+      "path": "mine/openers/02-grid-reveal",
+      "category": "opener",
+      "source": "own",
+      "status": "used",
+      "engine": "python",
+      "duration_seconds": 7.333333333333333,
+      "width": 2688,
+      "height": 1512,
+      "fps": 30,
+      "tags": [
+        "九宫格",
+        "相框掉落",
+        "原生高清"
+      ],
+      "required_inputs": [
+        "封面照片和标题",
+        "9路格子视频",
+        "5路整画面片段"
+      ],
+      "editable_fields": "cover, cover_crop, title, title_position, center_title, clips, audio, grid_lines",
+      "used_in": "联发集团最终修订版",
+      "provenance": "联发集团最终修订版",
+      "preview": "preview.mp4",
+      "cover": "cover.jpg",
+      "config": "config.json",
+      "entrypoint": "render.py",
+      "summary": "九宫格展开与相框掉落；复制为实例后替换素材导出。"
+    },
+    {
+      "id": "motion-05",
+      "number": "05",
+      "aliases": [
+        "05",
+        "M05",
+        "梯形卡片由上到下展开铺屏"
+      ],
+      "name": "梯形卡片由上到下展开铺屏",
+      "path": "references/openers/05-trapezoid-popups",
+      "category": "opener",
+      "source": "reference",
+      "status": "recreated",
+      "engine": "browser",
+      "duration_seconds": 4.0,
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "tags": [
+        "梯形",
+        "连续弹窗",
+        "铺屏"
+      ],
+      "required_inputs": [
+        "每张卡片的文案与姓名"
+      ],
+      "editable_fields": "lines, names, pos, starts, colors",
+      "used_in": null,
+      "provenance": "项目试做；未确认进入成片",
+      "preview": "preview.mp4",
+      "cover": "cover.jpg",
+      "config": "config.json",
+      "entrypoint": "index.html",
+      "summary": "梯形卡片由上到下展开铺屏；复制为实例后替换素材导出。"
+    },
+    {
+      "id": "motion-17",
+      "number": "17",
+      "aliases": [
+        "17",
+        "M17",
+        "上方视频与下方动态音频波形"
+      ],
+      "name": "上方视频与下方动态音频波形",
+      "path": "mine/middles/17-video-waveform",
+      "category": "middle",
+      "source": "own",
+      "status": "used",
+      "engine": "browser",
+      "duration_seconds": 9.466666666666667,
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "tags": [
+        "视频",
+        "音频波形",
+        "同步"
+      ],
+      "required_inputs": [
+        "带声音的视频片段",
+        "标题和来源文字"
+      ],
+      "editable_fields": "video, audio, wave_audio, title, source_label, background, accent",
+      "used_in": "工具榜单HappyHorse段",
+      "provenance": "工具榜单HappyHorse段",
+      "preview": "preview.mp4",
+      "cover": "cover.jpg",
+      "config": "config.json",
+      "entrypoint": "index.html",
+      "summary": "上方视频与下方动态音频波形；复制为实例后替换素材导出。"
+    },
+    {
+      "id": "motion-26",
+      "number": "26",
+      "aliases": [
+        "26",
+        "M26",
+        "封面墙与头像上升点击关注"
+      ],
+      "name": "封面墙与头像上升点击关注",
+      "path": "mine/closers/26-follow-wall",
+      "category": "closer",
+      "source": "own",
+      "status": "used",
+      "engine": "browser",
+      "duration_seconds": 4.466666666666667,
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "tags": [
+        "照片墙",
+        "头像",
+        "关注",
+        "手指点击"
+      ],
+      "required_inputs": [
+        "封面图片",
+        "可选新头像",
+        "可选新点击前景视频与音效"
+      ],
+      "editable_fields": "wall_images, wall_opacity, avatar, foreground_frames, rise_frames, audio",
+      "used_in": "工具榜单v10、LibTV结尾",
+      "provenance": "工具榜单v10、LibTV结尾",
+      "preview": "preview.mp4",
+      "cover": "cover.jpg",
+      "config": "config.json",
+      "entrypoint": "index.html",
+      "summary": "封面墙与头像上升点击关注；复制为实例后替换素材导出。"
+    },
+    {
+      "id": "motion-27",
+      "number": "27",
+      "aliases": [
+        "27",
+        "M27",
+        "黑底打字文案与照片胶片条"
+      ],
+      "name": "黑底打字文案与照片胶片条",
+      "path": "mine/closers/27-filmstrip-typewriter",
+      "category": "closer",
+      "source": "own",
+      "status": "used",
+      "engine": "python",
+      "duration_seconds": 3.6,
+      "width": 2688,
+      "height": 1512,
+      "fps": 30,
+      "tags": [
+        "打字机",
+        "胶片",
+        "照片滚动"
+      ],
+      "required_inputs": [
+        "两行收尾文案",
+        "照片列表"
+      ],
+      "editable_fields": "lines, photos, film_top, film_bottom, font, audio",
+      "used_in": "联发集团原生高清结尾",
+      "provenance": "联发集团原生高清结尾",
+      "preview": "preview.mp4",
+      "cover": "cover.jpg",
+      "config": "config.json",
+      "entrypoint": "render.py",
+      "summary": "黑底打字文案与照片胶片条；复制为实例后替换素材导出。"
+    },
+    {
+      "id": "motion-32",
+      "number": "32",
+      "aliases": [
+        "32",
+        "M32",
+        "标题逐字从大且模糊收缩清晰"
+      ],
+      "name": "标题逐字从大且模糊收缩清晰",
+      "path": "references/middles/32-title-focus",
+      "category": "middle",
+      "source": "reference",
+      "status": "idea",
+      "engine": "reference",
+      "duration_seconds": 1.8,
+      "width": 1280,
+      "height": 720,
+      "fps": 30,
+      "tags": [
+        "标题",
+        "模糊",
+        "逐字",
+        "收缩"
+      ],
+      "required_inputs": [
+        "待复刻的新标题",
+        "目标画幅"
+      ],
+      "editable_fields": "text, width, height；目前只有参考，不是可直接渲染的文字模板",
+      "used_in": null,
+      "provenance": "参考01，原作者待补充",
+      "preview": "preview.mp4",
+      "cover": "cover.jpg",
+      "config": "config.json",
+      "entrypoint": "index.html",
+      "summary": "标题逐字从大且模糊收缩清晰；仅保存参考，调用时先复刻。"
     }
   ]
 }

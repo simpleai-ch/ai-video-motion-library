@@ -1,0 +1,37 @@
+{
+  "id": "motion-01",
+  "number": "01",
+  "aliases": [
+    "01",
+    "M01",
+    "工具榜单快闪与卡片归位"
+  ],
+  "name": "工具榜单快闪与卡片归位",
+  "path": "mine/openers/01-ranking-flash",
+  "category": "opener",
+  "source": "own",
+  "status": "used",
+  "engine": "browser",
+  "duration_seconds": 5.2,
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "tags": [
+    "快闪",
+    "排名",
+    "卡片归位"
+  ],
+  "required_inputs": [
+    "10张图片和对应名称/编号",
+    "可选人物视频",
+    "新口播音频与字幕"
+  ],
+  "editable_fields": "items, heading, subheading, captions, presenter, show_presenter, audio, timing",
+  "used_in": "工具榜单v10",
+  "provenance": "工具榜单v10",
+  "preview": "preview.mp4",
+  "cover": "cover.jpg",
+  "config": "config.json",
+  "entrypoint": "index.html",
+  "summary": "工具榜单快闪与卡片归位；复制为实例后替换素材导出。"
+}
