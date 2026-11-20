@@ -1,0 +1,29 @@
+{
+  "id": "middle-ai-editor-network",
+  "name": "AI剪辑器 · 关系网络",
+  "category": "middle",
+  "source": "reference",
+  "status": "recreated",
+  "used_in": [],
+  "reference": { "note": "参考某MG口播视频截图，见 assets/reference.png", "url": "" },
+  "duration_seconds": 13,
+  "aspect": "16:9",
+  "resolution": "1920x1080",
+  "style": {
+    "summary": "暗黑科技风 MG 讲解动画：黑底网格 + 斜纹面板，红/黄/蓝三色点缀，模拟软件界面（文件树 + 画布 + 时间轴），元素按顺序逐个入场，用关系网络图讲清“多方连接多平台”。",
+    "tags": ["暗黑科技", "MG动画", "软件界面", "关系网络", "信息图", "口播辅助", "AI工具"],
+    "palette": ["#121212", "#e23b2e", "#f5c43a", "#2f6fe0", "#ffffff"],
+    "mood": "专业、理性、节奏紧凑",
+    "motion_language": ["左侧滑入", "卷轴式展开", "点-线引出弹窗", "依次渐隐", "半出现→连线→完全出现", "进度条不等速拉满"]
+  },
+  "fits": [
+    "讲 AI 工具 / 软件产品原理",
+    "解释多方关系、平台生态、连接结构",
+    "口播中段需要 B-roll 信息图时"
+  ],
+  "editable": {
+    "where": "index.html 中 <script> 顶部的 CONFIG",
+    "fields": ["subtitle", "windowTitle", "modelTag", "companies[3]", "nodeLabel", "barLabels[4]", "totalSeconds"]
+  },
+  "todo": ["人物目前是代码画的占位版，待替换为坐姿 IP 插画（透明 PNG，最好人物/椅子/桌子/显示器分层）"]
+}
