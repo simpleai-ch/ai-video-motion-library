@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IP动效复刻 · AI的剪映</title>
+<style>
+  :root{--red:#e23b2e;--yel:#f5c43a;--blu:#2f6fe0;--cn:"PingFang SC","Microsoft YaHei","Noto Sans SC","Source Han Sans SC",sans-serif;--mono:"JetBrains Mono","SFMono-Regular",Consolas,monospace}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;background:#0a0a0a;overflow:hidden;font-family:var(--cn)}
+  #wrap{position:absolute;inset:0 0 56px 0;display:flex;align-items:center;justify-content:center}
+  #stage{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0;overflow:hidden;
+    background:
+      linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px) 0 0/64px 64px,
+      linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px) 0 0/64px 64px,
+      radial-gradient(ellipse at 40% 45%,#1c1c1c 0%,#101010 70%,#0b0b0b 100%)}
+  .abs{position:absolute}
+  .frameline{left:50px;top:12px;right:50px;bottom:60px;border:1px solid #2c2c2c}
+  .badge{left:64px;top:22px;width:42px;height:42px;background:repeating-linear-gradient(45deg,var(--yel) 0 6px,#111 6px 12px);border:2px solid #ddd}
+  .logo{right:70px;top:18px;color:#eee;font:900 40px/1 var(--cn);letter-spacing:2px;display:flex;gap:10px;align-items:center}
+  .logo i{display:grid;grid-template-columns:repeat(3,10px);gap:3px}
+  .logo i b{width:10px;height:10px;background:#666}.logo i b:nth-child(3n){background:var(--red)}
+  .hatch{background:repeating-linear-gradient(135deg,#1b1b1b 0 10px,#151515 10px 20px)}
+  .sub{left:190px;top:942px;width:1525px;height:66px;border:1px solid #444;background:#0f0f0f;color:#fff;font:700 40px/64px var(--cn);text-align:center;letter-spacing:2px}
+  .sub::before{content:"";position:absolute;left:-2px;top:12px;width:3px;height:16px;background:var(--red)}
+  .sub::after{content:"";position:absolute;right:0;top:0;width:100px;height:100%;background:repeating-linear-gradient(135deg,#222 0 6px,#111 6px 12px)}
+  /* red model frame */
+  #model{left:390px;top:540px;width:465px;height:325px;border:2px solid var(--red);border-right-color:#ddd;border-bottom-color:#ddd;background:#141414}
+  #model .stripes{position:absolute;inset:0;background:repeating-linear-gradient(135deg,#1e1e1e 0 14px,#171717 14px 28px)}
+  #roller{left:384px;top:534px;width:477px;height:10px;background:var(--red);box-shadow:0 0 18px rgba(226,59,46,.7)}
+  #tag{left:402px;top:546px;background:var(--red);color:#fff;font:900 30px/44px var(--cn);padding:0 12px;border:2px solid #fff;letter-spacing:1px}
+  #robot{left:480px;top:610px;width:230px;height:220px}
+  /* popup */
+  #popup{left:695px;top:75px;width:1225px;height:743px;background:#131313;border-top:1px solid #3a3a3a;border-left:1px solid #3a3a3a;overflow:hidden}
+  #popup .layer{position:absolute;left:-695px;top:-75px;width:1920px;height:1080px}
+  .ptitle{left:695px;top:75px;width:1225px;height:52px;border-bottom:1px solid #2a2a2a;background:repeating-linear-gradient(135deg,#191919 0 8px,#141414 8px 16px)}
+  .ptitle span{position:absolute;left:22px;top:8px;color:#fff;font:900 30px/36px var(--cn)}
+  .corner{left:690px;top:70px;width:40px;height:40px;border-left:4px solid var(--yel);border-top:4px solid var(--yel)}
+  .tree{font-family:var(--mono);color:#cfcfcf;font-size:20px}
+  .tree .it{position:absolute;display:flex;align-items:center;gap:12px;height:36px;white-space:nowrap}
+  .tree .it svg{width:24px;height:24px}
+  .tree .sel{background:#1d3f86;color:#7fb0ff;padding:0 18px 0 10px;border-left:3px solid #4d8cff}
+  #canvasRect{left:929px;top:152px;width:951px;height:436px;border:2px solid #4a4a4a;border-radius:6px;background:#161616}
+  .play{left:922px;top:476px;width:0;height:0;border-left:58px solid #cfcfcf;border-top:40px solid transparent;border-bottom:40px solid transparent;filter:drop-shadow(0 0 6px rgba(0,0,0,.6))}
+  .comp{position:absolute;top:178px;height:80px;display:flex;align-items:center;gap:16px;padding:0 22px;background:#1d1d1d;border-top:1px solid #333;color:#fff;font:900 42px/1 var(--cn)}
+  .ruler{font:500 21px/1 var(--mono);color:#ccc}
+  .lbl{font:500 18px/1 var(--cn);color:#ddd;display:flex;align-items:center;gap:10px}
+  .lbl b{width:7px;height:7px;border-radius:50%}
+  .track{height:17px;border-radius:9px;background:#262626;left:932px;width:943px}
+  .bar{height:17px;border-radius:9px}
+  /* controls */
+  #ctrl{position:fixed;left:0;right:0;bottom:0;height:56px;background:#161616;border-top:1px solid #2a2a2a;display:flex;align-items:center;gap:14px;padding:0 18px;color:#ccc;font:14px var(--cn)}
+  #ctrl button{background:#262626;color:#eee;border:1px solid #3a3a3a;border-radius:6px;padding:7px 14px;font:inherit;cursor:pointer}
+  #ctrl button:hover{background:#333}
+  #ctrl input[type=range]{flex:1;accent-color:var(--yel)}
+  #t{width:64px;text-align:right;font-family:var(--mono)}
+  #hero .eye{transform-box:fill-box;transform-origin:center;animation:blink 4s infinite}
+  #eyeF{animation-delay:.02s}
+  @keyframes blink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+  #hero .hand{animation:type .32s ease-in-out infinite alternate}
+  #handF{animation-delay:.16s}
+  @keyframes type{to{transform:translateY(-6px)}}
+  #head{transform-box:fill-box;transform-origin:50% 90%;animation:bob 2.4s ease-in-out infinite}
+  @keyframes bob{50%{transform:rotate(-2deg) translateY(2px)}}
+  svg .cg{transform-box:fill-box;transform-origin:center}
+</style>
+</head>
+<body>
+<div id="wrap"></div>
+<div id="stage">
+  <!-- static chrome -->
+  <div class="abs frameline"></div>
+    <div class="abs hatch" style="left:1270px;top:818px;width:560px;height:120px;border-left:1px solid #2a2a2a"></div>
+  <svg class="abs" style="left:1300px;top:840px" width="110" height="110"><circle cx="55" cy="55" r="44" fill="#151515" stroke="#333" stroke-width="2"/></svg>
+
+  <!-- character + desk (slides in) -->
+  <div class="abs" id="hero" style="left:0;top:0;width:900px;height:1080px">
+<svg class="abs" style="left:0;top:0;overflow:visible" width="900" height="1080" viewBox="0 0 900 1080">
+  <defs>
+    <linearGradient id="iris" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2d2f35"/><stop offset=".6" stop-color="#5b5f68"/><stop offset="1" stop-color="#9aa0aa"/></linearGradient>
+    <linearGradient id="hairG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a2620"/><stop offset="1" stop-color="#22150f"/></linearGradient>
+  </defs>
+  <!-- monitor (back/side view) -->
+  <polygon points="470,282 735,250 735,580 470,566" fill="#232323" stroke="#3b3b3b" stroke-width="3"/>
+  <polygon points="486,298 719,270 719,566 486,553" fill="#1a1a1a"/>
+  <rect x="590" y="568" width="44" height="32" fill="#2a2a2a" stroke="#3b3b3b" stroke-width="2"/>
+
+  <!-- chair -->
+  <rect x="68" y="450" width="72" height="255" rx="22" fill="#262626" stroke="#3d3d3d" stroke-width="3"/>
+  <rect x="124" y="482" width="9" height="195" rx="4" fill="#e23b2e"/>
+  <rect x="96" y="700" width="210" height="30" rx="10" fill="#2b2b2b" stroke="#3d3d3d" stroke-width="3"/>
+  <rect x="186" y="730" width="18" height="110" fill="#333" stroke="#444" stroke-width="2"/>
+  <path d="M105 852 L195 838 L285 852" fill="none" stroke="#333" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="105" cy="864" r="11" fill="#1d1d1d" stroke="#555" stroke-width="3"/>
+  <circle cx="195" cy="858" r="11" fill="#1d1d1d" stroke="#555" stroke-width="3"/>
+  <circle cx="285" cy="864" r="11" fill="#1d1d1d" stroke="#555" stroke-width="3"/>
+
+  <!-- ===== character ===== -->
+  <g id="girl" stroke-linejoin="round">
+    <!-- hair back -->
+    <path d="M232 290 C168 288 128 332 126 392 C124 445 116 488 106 528 C124 540 152 536 166 520 C174 540 196 544 212 532 L304 486 C322 444 330 400 324 360 C318 316 284 292 232 290 Z" fill="url(#hairG)"/>
+    <!-- far arm -->
+    <path d="M262 522 L304 578 L358 586" fill="none" stroke="#c9cad1" stroke-width="36" stroke-linecap="round"/>
+    <path d="M262 522 L304 578 L358 586" fill="none" stroke="#ececf1" stroke-width="31" stroke-linecap="round"/>
+    <!-- torso / blazer -->
+    <path d="M163 505 C192 494 244 494 278 506 C294 544 294 604 286 648 L170 652 C158 604 156 546 163 505 Z" fill="#fbfbfc" stroke="#c9cad1" stroke-width="3"/>
+    <path d="M230 502 L262 504 L256 556 L238 556 Z" fill="#fff" stroke="#c9cad1" stroke-width="2.5"/>
+    <path d="M230 502 L216 548 L236 566 M262 504 L276 546 L258 566" fill="none" stroke="#bfc0c8" stroke-width="2.5"/>
+    <circle cx="248" cy="604" r="4.5" fill="#e3e4ea" stroke="#bfc0c8" stroke-width="2"/>
+    <path d="M186 560 C182 600 184 630 190 648" fill="none" stroke="#e1e2e8" stroke-width="6"/>
+    <!-- neck -->
+    <rect x="221" y="476" width="26" height="30" rx="6" fill="#f6d6c8"/>
+    <!-- head -->
+    <g id="head">
+      <ellipse cx="166" cy="420" rx="11" ry="16" fill="#fde6da" stroke="#e9c3b3" stroke-width="2"/>
+      <path d="M160 392 C160 452 200 490 242 490 C286 490 312 452 312 402 C312 352 282 320 238 320 C192 320 160 350 160 392 Z" fill="#fde6da" stroke="#e9c3b3" stroke-width="2"/>
+      <circle cx="168" cy="446" r="6.5" fill="#fff" stroke="#b9bcc4" stroke-width="2"/>
+      <!-- blush -->
+      <ellipse cx="203" cy="444" rx="17" ry="9" fill="#f6a7a0" opacity=".55"/>
+      <ellipse cx="288" cy="441" rx="11" ry="8" fill="#f6a7a0" opacity=".55"/>
+      <!-- brows -->
+      <path d="M197 373 Q214 364 232 370" fill="none" stroke="#3a2620" stroke-width="3.5" stroke-linecap="round"/>
+      <path d="M262 368 Q276 364 288 371" fill="none" stroke="#3a2620" stroke-width="3" stroke-linecap="round"/>
+      <!-- eyes -->
+      <g class="eye" id="eyeN">
+        <ellipse cx="216" cy="413" rx="19" ry="23" fill="url(#iris)"/>
+        <ellipse cx="217" cy="414" rx="9" ry="11" fill="#17171b"/>
+        <circle cx="209" cy="404" r="6.5" fill="#fff"/><circle cx="224" cy="424" r="3" fill="#fff"/>
+        <path d="M193 398 Q214 382 239 394" fill="none" stroke="#1d1412" stroke-width="5.5" stroke-linecap="round"/>
+        <path d="M195 399 L184 391" stroke="#1d1412" stroke-width="4" stroke-linecap="round"/>
+      </g>
+      <g class="eye" id="eyeF">
+        <ellipse cx="276" cy="411" rx="14" ry="21" fill="url(#iris)"/>
+        <ellipse cx="277" cy="412" rx="7" ry="10" fill="#17171b"/>
+        <circle cx="271" cy="403" r="5" fill="#fff"/><circle cx="282" cy="421" r="2.5" fill="#fff"/>
+        <path d="M260 394 Q278 383 294 396" fill="none" stroke="#1d1412" stroke-width="5" stroke-linecap="round"/>
+        <path d="M292 395 L300 389" stroke="#1d1412" stroke-width="3.5" stroke-linecap="round"/>
+      </g>
+      <path d="M296 428 l3 6" stroke="#e2b2a2" stroke-width="2" stroke-linecap="round"/>
+      <path d="M248 454 Q258 461 268 452" fill="none" stroke="#a45d54" stroke-width="2.8" stroke-linecap="round"/>
+      <!-- front hair (center part) -->
+      <path d="M238 300 C190 298 150 330 148 386 C147 424 152 458 162 476 C166 444 171 412 180 386 C190 366 214 352 244 344 C270 356 296 372 312 404 C318 372 320 350 314 334 C302 310 272 300 238 300 Z" fill="url(#hairG)"/>
+      <path d="M306 360 C324 402 322 446 310 478 C302 450 300 414 298 392 Z" fill="#2a1a14"/>
+      <path d="M196 322 C214 312 236 310 252 314" fill="none" stroke="#5a3d31" stroke-width="4" stroke-linecap="round" opacity=".8"/>
+      <!-- crown -->
+      <g transform="rotate(12 250 290)">
+        <path d="M206 300 L200 262 L222 282 L233 252 L248 278 L262 244 L273 278 L289 258 L292 300 Z" fill="#f9c35a" stroke="#d9962a" stroke-width="2.5"/>
+        <path d="M233 252 L240 300 M262 244 L262 300 M222 282 L218 300 M273 278 L278 300" stroke="#e9ab3d" stroke-width="2"/>
+        <g fill="#ffd27a" stroke="#d9962a" stroke-width="2">
+          <circle cx="200" cy="260" r="6"/><circle cx="233" cy="250" r="6"/><circle cx="262" cy="241" r="7"/><circle cx="289" cy="256" r="6"/></g>
+      </g>
+    </g>
+    <!-- seat legs -->
+    <path d="M168 628 L332 632 C346 636 348 688 334 693 L172 702 C158 692 158 640 168 628 Z" fill="#fbfbfc" stroke="#c9cad1" stroke-width="3"/>
+    <path d="M292 688 L342 688 L348 878 L300 878 Z" fill="#f3f3f6" stroke="#c9cad1" stroke-width="3"/>
+    <path d="M318 700 L322 872" stroke="#dfe0e6" stroke-width="3"/>
+    <path d="M294 876 L350 874 C372 876 382 888 380 902 L294 904 C288 896 288 882 294 876 Z" fill="#fff" stroke="#c4c5cc" stroke-width="3"/>
+  </g>
+
+  <!-- desk -->
+  <polygon points="300,598 870,590 870,610 300,618" fill="#2e2e2e" stroke="#454545" stroke-width="2"/>
+  <rect x="420" y="616" width="20" height="300" fill="#232323" stroke="#3a3a3a" stroke-width="2"/>
+  <rect x="830" y="608" width="20" height="310" fill="#232323" stroke="#3a3a3a" stroke-width="2"/>
+  <polygon points="318,594 452,590 462,598 308,602" fill="#3d3d3d" stroke="#555" stroke-width="1.5"/>
+
+  <!-- near arm (on top of desk) -->
+  <path d="M192 522 L236 594 L330 596" fill="none" stroke="#c9cad1" stroke-width="38" stroke-linecap="round"/>
+  <path d="M192 522 L236 594 L330 596" fill="none" stroke="#fbfbfc" stroke-width="33" stroke-linecap="round"/>
+  <g class="hand" id="handN"><ellipse cx="350" cy="590" rx="15" ry="11" fill="#fde6da" stroke="#e9c3b3" stroke-width="2"/></g>
+  <g class="hand" id="handF"><ellipse cx="378" cy="584" rx="13" ry="9" fill="#f6d6c8" stroke="#e9c3b3" stroke-width="2"/></g>
+</svg>
+
+  </div>
+
+  <!-- yellow fold line + dots -->
+  <svg class="abs" style="left:0;top:0;pointer-events:none" width="1920" height="1080">
+    <defs><mask id="mFold" maskUnits="userSpaceOnUse" x="0" y="0" width="1920" height="1080">
+      <path id="foldMask" d="M600 330 V222 H695" fill="none" stroke="#fff" stroke-width="10" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="1"/>
+    </mask></defs>
+    <path d="M600 330 V222 H695" fill="none" stroke="var(--yel)" stroke-width="2.5" stroke-dasharray="7 6" mask="url(#mFold)"/>
+    <g class="cg" id="dot1"><circle cx="600" cy="330" r="12" fill="var(--yel)" stroke="#111" stroke-width="3"/></g>
+  </svg>
+
+  <!-- red model frame -->
+  <div class="abs" id="model"><div class="stripes"></div></div>
+  <svg class="abs" id="robot" viewBox="0 0 230 220">
+    <circle cx="115" cy="22" r="16" fill="#eee"/><rect x="108" y="30" width="14" height="30" fill="#eee"/>
+    <rect x="22" y="70" width="22" height="56" rx="10" fill="#eee"/><rect x="186" y="70" width="22" height="56" rx="10" fill="#eee"/>
+    <rect x="40" y="56" width="150" height="104" rx="30" fill="#eee"/>
+    <text x="115" y="134" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="74" fill="#111" font-style="italic">Ai</text>
+    <rect x="58" y="182" width="114" height="22" rx="11" fill="#eee"/>
+  </svg>
+  <div class="abs" id="roller"></div>
+  <div class="abs" id="tag">大模型</div>
+
+  <!-- popup -->
+  <div class="abs" id="popup"><div class="layer">
+    <div class="abs ptitle"><span id="ptxt">“AI的剪映”</span></div>
+    <div class="tree" id="tree">
+      <div class="it" style="left:722px;top:188px;font-size:22px;color:#eee">video-editor</div>
+      <div class="it" style="left:722px;top:236px"><svg viewBox="0 0 24 24"><path d="M2 5h7l2 2h11v13H2z" fill="none" stroke="#aaa" stroke-width="1.6"/></svg>public</div>
+      <div class="it" style="left:722px;top:278px"><svg viewBox="0 0 24 24"><path d="M2 5h7l2 2h11v13H2z" fill="none" stroke="#aaa" stroke-width="1.6"/></svg>src</div>
+      <div class="it sel" style="left:716px;top:320px;width:196px"><svg viewBox="0 0 24 24" style="margin-left:18px"><path d="M5 2h10l5 5v15H5z" fill="none" stroke="#7fb0ff" stroke-width="1.6"/></svg>Editor.tsx</div>
+      <div class="it" style="left:750px;top:362px"><svg viewBox="0 0 24 24"><path d="M5 2h10l5 5v15H5z" fill="none" stroke="#bbb" stroke-width="1.6"/></svg>Timeline.tsx</div>
+      <div class="it" style="left:750px;top:404px"><svg viewBox="0 0 24 24"><path d="M5 2h10l5 5v15H5z" fill="none" stroke="#bbb" stroke-width="1.6"/></svg>Orbit.tsx</div>
+      <div class="it" style="left:722px;top:446px"><svg viewBox="0 0 24 24"><path d="M5 2h10l5 5v15H5z" fill="none" stroke="#bbb" stroke-width="1.6"/></svg>package.json</div>
+    </div>
+    <div class="abs" id="canvasRect"></div>
+    <div class="abs comp" id="c0" style="left:1058px"><svg width="46" height="52" viewBox="0 0 46 52"><path d="M4 50V10L30 2v48z" fill="var(--red)"/><path d="M30 14h12v36H30z" fill="none" stroke="var(--red)" stroke-width="4"/><path d="M10 14h12M10 24h12M10 34h12" stroke="#1d1d1d" stroke-width="4"/></svg>公司</div>
+    <div class="abs comp" id="c1" style="left:1312px"><svg width="44" height="50" viewBox="0 0 44 50"><circle cx="22" cy="13" r="11" fill="var(--blu)"/><path d="M2 50c0-14 9-22 20-22s20 8 20 22z" fill="var(--blu)"/></svg>高管</div>
+    <div class="abs comp" id="c2" style="left:1566px"><svg width="50" height="48" viewBox="0 0 50 48"><path d="M25 2l7 15 16 2-12 11 3 16-14-8-14 8 3-16L2 19l16-2z" fill="var(--yel)"/></svg>网红</div>
+    <svg class="abs" id="net" style="left:0;top:0;overflow:visible" width="1920" height="1080"></svg>
+    
+    <!-- timeline -->
+    <div id="tl">
+      <div class="abs" style="left:932px;top:640px;width:943px;height:1px;background:#555"></div>
+    </div>
+  </div></div>
+  <svg class="abs" style="left:0;top:0;pointer-events:none" width="1920" height="1080">
+    <g class="cg" id="dot2"><circle cx="695" cy="222" r="12" fill="var(--yel)" stroke="#111" stroke-width="3"/></g>
+  </svg>
+  <div class="abs corner" id="corner"></div>
+
+  <div class="abs sub" id="sub">那大家或许会觉得</div>
+  <div class="abs" style="left:60px;bottom:20px;color:#bbb;font:italic 15px var(--cn)">+ your-ip +</div>
+</div>
+
+<div id="ctrl">
+  <button id="bPlay">⏸ 暂停</button><button id="bReplay">↺ 重播</button>
+  <input type="range" id="scrub" min="0" max="13" step="0.01" value="0"><span id="t">0.00s</span>
+  <label><input type="checkbox" id="loop" checked> 循环</label>
+</div>
+
+<script>
+/* ===== 可替换内容（改这里即可复用） ===== */
+const CONFIG={
+  subtitle:'那大家或许会觉得',
+  windowTitle:'“AI的剪映”',
+  modelTag:'大模型',
+  companies:['公司','高管','网红'],
+  nodeLabel:'平台',
+  barLabels:['图层1','光点','行星','轨迹'],
+  totalSeconds:13
+};
+const $=id=>document.getElementById(id);
+const stage=$('stage');
+$('sub').textContent=CONFIG.subtitle;$('ptxt').textContent=CONFIG.windowTitle;$('tag').textContent=CONFIG.modelTag;
+CONFIG.companies.forEach((t,i)=>{const el=$('c'+i);el.lastChild.textContent=t});
+function fit(){const W=innerWidth,H=innerHeight-56;const s=Math.min(W/1920,H/1080);
+  stage.style.transform=`translate(${(W-1920*s)/2}px,${(H-1080*s)/2}px) scale(${s})`;}
+addEventListener('resize',fit);fit();
+
+/* ---------- build timeline + network DOM ---------- */
+const TL=$('tl');
+['0s','1s','2s','3s','4s','5s'].forEach((s,i)=>{const x=932+i*188.6;
+  TL.insertAdjacentHTML('beforeend',`<div class="abs ruler rl" style="left:${x-(i==5?24:0)}px;top:612px">${s}</div>`);
+  for(let k=0;k<5;k++)if(i<5)TL.insertAdjacentHTML('beforeend',`<div class="abs" style="left:${x+k*37.7}px;top:${k?632:626}px;width:1px;height:${k?8:14}px;background:#777"></div>`)});
+const bars=[['#eee',932],['var(--yel)',996],['var(--blu)',1045],['var(--red)',1103]].map((b,i)=>[CONFIG.barLabels[i],...b]);
+bars.forEach(([n,c,x0],i)=>{const y=670+i*29;
+  TL.insertAdjacentHTML('beforeend',`<div class="abs lbl tl-l" style="left:748px;top:${y}px"><b style="background:${c}"></b>${n}</div>
+  <div class="abs track tl-t" style="top:${y}px"></div>
+  <div class="abs bar tl-b" style="left:${x0}px;top:${y}px;width:${1875-x0}px;background:${c}"></div>`)});
+
+const COL={r:'#e23b2e',b:'#2f6fe0',y:'#f5c43a'};
+// [letter, cx, cy, r, color]  — layout mirrors the reference
+const C=[['A',1083,449,52,'r'],['B',1135,380,46,'b'],['C',1231,444,55,'y'],['D',1290,371,40,'r'],
+  ['E',1404,452,63,'b'],['F',1480,371,40,'y'],['G',1537,440,58,'r'],['H',1608,376,38,'b'],
+  ['I',1717,447,52,'y'],['J',1688,357,40,'r'],['K',1148,501,55,'b'],['L',1317,501,58,'y'],['M',1634,501,58,'r']];
+const ANCH=[[1150,258,'r'],[1405,258,'b'],[1658,258,'y']];
+const NS='http://www.w3.org/2000/svg';const net=$('net');
+let defs=`<defs><mask id="mNet" maskUnits="userSpaceOnUse" x="0" y="0" width="1920" height="1080">`, lines='', circles='';
+C.forEach(([L,cx,cy,r,c],i)=>{
+  ANCH.forEach(([ax,ay,ac],j)=>{
+    const sy=cy, d=`M${cx} ${sy} C${cx} ${sy-r-90} ${ax} ${ay+70} ${ax} ${ay}`;
+    defs+=`<path class="lm" data-i="${i}" data-j="${j}" d="${d}" fill="none" stroke="#fff" stroke-width="8" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="1"/>`;
+    lines+=`<path d="${d}" fill="none" stroke="${COL[ac]}" stroke-width="1.8" stroke-dasharray="2 5" stroke-linecap="round" opacity=".85"/>`;
+  });
+  const fs=Math.round(r*0.62);
+  circles+=`<g class="cg circ" data-i="${i}">
+    <circle cx="${cx}" cy="${cy}" r="${r}" fill="#1a1a1a" stroke="#8a8a8a" stroke-width="2" stroke-dasharray="4 4"/>
+    <g class="ctext"><text x="${cx}" y="${cy-r*0.08}" text-anchor="middle" font-family="${getComputedStyle(document.body).fontFamily}" font-weight="900" font-size="${fs}" fill="#fff">${CONFIG.nodeLabel}</text>
+    <text x="${cx}" y="${cy+r*0.62}" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="${fs*1.05}" fill="${COL[c]}">${L}</text></g></g>`;
+});
+net.innerHTML=defs+`</mask></defs><g mask="url(#mNet)">${lines}</g>${circles}`;
+
+/* ---------- animation timeline (seconds) ---------- */
+const OUT='cubic-bezier(.22,1,.36,1)', BACK='cubic-bezier(.34,1.56,.64,1)', IO='cubic-bezier(.65,0,.35,1)';
+let anims=[];
+function A(el,kf,at,dur,ease=OUT){const a=el.animate(kf,{delay:at*1000,duration:dur*1000,easing:ease,fill:'both'});anims.push(a);return a}
+const fadeUp=(el,at,dur=.4,dy=14)=>A(el,[{opacity:0,transform:`translateY(${dy}px)`},{opacity:1,transform:'none'}],at,dur);
+const TOTAL=CONFIG.totalSeconds;
+
+function build(){
+  anims.forEach(a=>a.cancel());anims=[];
+  // chrome
+  fadeUp($('sub'),0.2,.5);
+  // 1. character + desk slide in left → right
+  A($('hero'),[{transform:'translateX(-760px)',opacity:0},{opacity:1,offset:.3},{transform:'none',opacity:1}],0.25,1.0,OUT);
+  // 2. red frame unrolls top → bottom like a scroll
+  A($('tag'),[{opacity:0,transform:'scaleX(0)',transformOrigin:'left'},{opacity:1,transform:'none',transformOrigin:'left'}],1.25,.3,OUT);
+  A($('roller'),[{opacity:0,transform:'translateY(0)'},{opacity:1,offset:.08,transform:'translateY(0)'},{opacity:1,offset:.92,transform:'translateY(321px)'},{opacity:0,transform:'translateY(321px)'}],1.35,1.15,'linear');
+  A($('model'),[{clipPath:'inset(0 0 100% 0)'},{clipPath:'inset(0 0 0% 0)'}],1.4,1.0,IO);
+  // 3. AI image
+  A($('robot'),[{opacity:0,transform:'scale(.6)'},{opacity:1,transform:'none'}],2.45,.5,BACK);
+  // 4. yellow dots + fold line
+  A($('dot1'),[{opacity:0,transform:'scale(0)'},{opacity:1,transform:'none'}],3.0,.3,BACK);
+  A($('foldMask'),[{strokeDashoffset:1},{strokeDashoffset:0}],3.2,.45,IO);
+  A($('dot2'),[{opacity:0,transform:'scale(0)'},{opacity:1,transform:'none'}],3.6,.3,BACK);
+  // popup opens from dot2: line to the right, then expands vertically
+  A($('popup'),[{clipPath:'inset(147px 100% 595px 0)'},{clipPath:'inset(147px 0% 595px 0)',offset:.45},{clipPath:'inset(0px 0% 0px 0)'}],3.8,.9,IO);
+  A($('corner'),[{opacity:0,transform:'translate(20px,20px)'},{opacity:1,transform:'none'}],4.5,.35);
+  A($('ptxt'),[{opacity:0,transform:'translateX(-20px)'},{opacity:1,transform:'none'}],4.6,.35);
+  // 5. popup contents: tree → canvas → timeline
+  [...$('tree').children].forEach((el,i)=>A(el,[{opacity:0,transform:'translateX(-24px)'},{opacity:1,transform:'none'}],4.75+i*.07,.35));
+  A($('canvasRect'),[{opacity:0,transform:'scale(.96)'},{opacity:1,transform:'none'}],5.0,.45);
+  document.querySelectorAll('.rl').forEach((el,i)=>fadeUp(el,5.2+i*.04,.3,8));
+  document.querySelectorAll('.tl-l').forEach((el,i)=>A(el,[{opacity:0},{opacity:1}],5.35+i*.08,.3));
+  document.querySelectorAll('.tl-t').forEach((el,i)=>A(el,[{opacity:0},{opacity:1}],5.35+i*.08,.3));
+  // bars fill independently at different, uneven speeds (white fastest → red slowest)
+  const BARS=[[5.7,3.2],[5.85,4.3],[6.0,5.4],[6.15,6.6]];
+  document.querySelectorAll('.tl-b').forEach((el,i)=>{
+    const [st,dur]=BARS[i];
+    const jit=[[.18,.10],[.35,.31],[.52,.42],[.7,.66],[.86,.79]].map(([o,p],k)=>({offset:o,clipPath:`inset(0 ${(100-100*Math.min(1,p+((i*7+k*3)%5-2)*.02)).toFixed(1)}% 0 0)`}));
+    A(el,[{clipPath:'inset(0 100% 0 0)'},...jit,{clipPath:'inset(0 0% 0 0)'}],st,dur,'linear');
+  });
+  // 6a. companies fade in one by one
+  [0,1,2].forEach(i=>A($('c'+i),[{opacity:0,filter:'blur(6px)'},{opacity:1,filter:'blur(0)'}],6.1+i*.4,.55,'ease-out'));
+  // 6b. circles: half-appear → lines draw to companies → finish appearing
+  const S0=7.5, STEP=.24, HALF=.28, LINE=.6, DONE=.35;
+  document.querySelectorAll('.circ').forEach(g=>{
+    const i=+g.dataset.i, s=S0+i*STEP, tot=HALF+LINE+DONE;
+    A(g,[{opacity:0,transform:'scale(0)',easing:BACK},
+         {opacity:.55,transform:'scale(.55)',offset:HALF/tot},
+         {opacity:.55,transform:'scale(.55)',offset:(HALF+LINE)/tot,easing:BACK},
+         {opacity:1,transform:'scale(1)'}],s,tot,'linear');
+    A(g.querySelector('.ctext'),[{opacity:0},{opacity:0,offset:(HALF+LINE)/tot},{opacity:1}],s,tot,'linear');
+  });
+  document.querySelectorAll('.lm').forEach(p=>{
+    const s=S0+(+p.dataset.i)*STEP+HALF+(+p.dataset.j)*.06;
+    A(p,[{strokeDashoffset:1},{strokeDashoffset:0}],s,LINE-.08,IO);
+  });
+}
+
+/* ---------- controls ---------- */
+let playing=true,t0=performance.now();
+const scrub=$('scrub'),tt=$('t'),bPlay=$('bPlay');
+function seek(sec){anims.forEach(a=>{a.currentTime=sec*1000})}
+function tick(){
+  if(playing){let sec=(performance.now()-t0)/1000;
+    if(sec>TOTAL){if($('loop').checked){t0=performance.now();sec=0;seek(0)}else{sec=TOTAL;setPlay(false)}}
+    seek(sec);scrub.value=sec;tt.textContent=sec.toFixed(2)+'s'}
+  requestAnimationFrame(tick)}
+function setPlay(p){playing=p;bPlay.textContent=p?'⏸ 暂停':'▶ 播放';if(p)t0=performance.now()-scrub.value*1000}
+build();anims.forEach(a=>a.pause());requestAnimationFrame(tick);
+bPlay.onclick=()=>setPlay(!playing);
+$('bReplay').onclick=()=>{scrub.value=0;setPlay(true);t0=performance.now()};
+scrub.oninput=()=>{setPlay(false);seek(+scrub.value);tt.textContent=(+scrub.value).toFixed(2)+'s'};
+addEventListener('keydown',e=>{if(e.code==='Space'){e.preventDefault();setPlay(!playing)}});
+</script>
+</body>
+</html>
