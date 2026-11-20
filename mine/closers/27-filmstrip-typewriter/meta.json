@@ -2,11 +2,12 @@
   "id": "motion-27",
   "number": "27",
   "aliases": [
+    "黑底打字文案与照片胶片条",
     "27",
     "M27",
-    "黑底打字文案与照片胶片条"
+    "胶片照片谢幕"
   ],
-  "name": "黑底打字文案与照片胶片条",
+  "name": "胶片照片谢幕",
   "path": "mine/closers/27-filmstrip-typewriter",
   "category": "closer",
   "source": "own",
@@ -32,5 +33,32 @@
   "cover": "cover.jpg",
   "config": "config.json",
   "entrypoint": "render.py",
-  "summary": "黑底打字文案与照片胶片条；复制为实例后替换素材导出。"
+  "summary": "左侧文案逐字出现，右侧照片胶片连续滚动。",
+  "styles": [
+    "复古胶片",
+    "黑底",
+    "纪实",
+    "克制",
+    "温暖"
+  ],
+  "use_cases": [
+    "活动总结",
+    "企业培训回顾",
+    "纪录片收尾",
+    "照片回顾",
+    "品牌谢幕"
+  ],
+  "search_terms": [
+    "胶片",
+    "照片",
+    "谢幕",
+    "打字",
+    "高级",
+    "纪实",
+    "活动总结",
+    "回顾",
+    "结束"
+  ],
+  "pace": "舒缓",
+  "display_number": false
 }

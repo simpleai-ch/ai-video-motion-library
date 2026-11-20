@@ -2,11 +2,12 @@
   "id": "motion-17",
   "number": "17",
   "aliases": [
+    "上方视频与下方动态音频波形",
     "17",
     "M17",
-    "上方视频与下方动态音频波形"
+    "视频与声音波形展示"
   ],
-  "name": "上方视频与下方动态音频波形",
+  "name": "视频与声音波形展示",
   "path": "mine/middles/17-video-waveform",
   "category": "middle",
   "source": "own",
@@ -32,5 +33,28 @@
   "cover": "cover.jpg",
   "config": "config.json",
   "entrypoint": "index.html",
-  "summary": "上方视频与下方动态音频波形；复制为实例后替换素材导出。"
+  "summary": "上方播放视频，下方展示真实音频波形和播放进度。",
+  "styles": [
+    "黑金",
+    "清晰演示",
+    "简洁"
+  ],
+  "use_cases": [
+    "AI视频展示",
+    "音画同步说明",
+    "生成效果演示",
+    "带声音的视频案例"
+  ],
+  "search_terms": [
+    "视频",
+    "声音",
+    "音频",
+    "波形",
+    "音画同步",
+    "演示",
+    "音效",
+    "试听"
+  ],
+  "pace": "随素材",
+  "display_number": false
 }

@@ -1,4 +1,7 @@
-# 05 梯形卡片由上到下展开铺屏
+# 梯形弹窗铺屏
+
+适合：评论展示、观点集中出现、需求很多、消息刷屏、信息爆发。
+风格：浅色、层叠、社交信息流、快节奏。节奏：快。
 
 分类：opener；状态：recreated；规格：1080×1920 / 30fps / 4.000秒。
 
@@ -10,10 +13,10 @@
 
 ## 调用
 
-读取根目录catalog.json，找到编号05，先复制实例，保留本条目原件：
+读取根目录catalog.json，按名称或视频需求选择“梯形弹窗铺屏”，先复制实例，保留本条目原件：
 
 ```bash
-python motion.py new 05 新视频-05
+python motion.py new "梯形弹窗铺屏" 新视频-05
 python motion.py validate instances/新视频-05
 python motion.py render instances/新视频-05
 ```

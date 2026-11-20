@@ -1,15 +1,20 @@
 {
-  "version": 2,
+  "version": 3,
   "fields": {
     "category": "opener 开头 | middle 中间 | closer 结尾",
     "source": "own 自己做过/用过（mine/） | reference 参考别人的（references/）",
-    "status": "idea 只有参考素材 | recreated 已复刻可用 | used 已在自己视频中使用"
+    "status": "idea 只有参考素材 | recreated 已复刻可用 | used 已在自己视频中使用",
+    "styles": "可检索的视觉风格",
+    "use_cases": "适合的内容与叙事用途",
+    "search_terms": "自然语言别名与描述",
+    "pace": "默认节奏；可按新口播调整",
+    "number": "内部兼容编号，用户不需要记忆"
   },
   "effects": [
     {
       "id": "middle-ai-editor-network",
       "path": "references/middles/ai-editor-network",
-      "name": "AI剪辑器 · 关系网络",
+      "name": "暗黑科技关系网络",
       "category": "middle",
       "source": "reference",
       "status": "recreated",
@@ -23,17 +28,46 @@
         "口播辅助",
         "AI工具"
       ],
-      "summary": "黑底网格+红黄蓝点缀的软件界面式MG，讲多方连接多平台的关系结构。"
+      "summary": "用节点、连线与软件界面解释工具间的关系。",
+      "aliases": [
+        "AI剪辑器 · 关系网络",
+        "暗黑科技关系网络"
+      ],
+      "styles": [
+        "暗黑科技",
+        "黑色网格",
+        "彩色连线",
+        "MG信息图"
+      ],
+      "use_cases": [
+        "多工具协作",
+        "AI功能解释",
+        "关系说明",
+        "系统结构"
+      ],
+      "search_terms": [
+        "关系",
+        "连线",
+        "网络",
+        "多个工具",
+        "科技",
+        "功能讲解",
+        "系统",
+        "流程"
+      ],
+      "pace": "中",
+      "display_number": false
     },
     {
       "id": "motion-01",
       "number": "01",
       "aliases": [
+        "工具榜单快闪与卡片归位",
         "01",
         "M01",
-        "工具榜单快闪与卡片归位"
+        "快闪榜单开场"
       ],
-      "name": "工具榜单快闪与卡片归位",
+      "name": "快闪榜单开场",
       "path": "mine/openers/01-ranking-flash",
       "category": "opener",
       "source": "own",
@@ -60,17 +94,40 @@
       "cover": "cover.jpg",
       "config": "config.json",
       "entrypoint": "index.html",
-      "summary": "工具榜单快闪与卡片归位；复制为实例后替换素材导出。"
+      "summary": "短促换画、编号强调，随后卡片归位；适合有多组素材的盘点开场。",
+      "styles": [
+        "黑金",
+        "科技感",
+        "信息密集",
+        "快节奏"
+      ],
+      "use_cases": [
+        "工具盘点",
+        "产品榜单",
+        "多个功能介绍",
+        "快速吸引注意力"
+      ],
+      "search_terms": [
+        "快闪",
+        "快速开场",
+        "排名",
+        "工具",
+        "节奏快",
+        "冲击力"
+      ],
+      "pace": "快",
+      "display_number": false
     },
     {
       "id": "motion-02",
       "number": "02",
       "aliases": [
+        "九宫格展开与相框掉落",
         "02",
         "M02",
-        "九宫格展开与相框掉落"
+        "九宫格纪实开场"
       ],
-      "name": "九宫格展开与相框掉落",
+      "name": "九宫格纪实开场",
       "path": "mine/openers/02-grid-reveal",
       "category": "opener",
       "source": "own",
@@ -97,17 +154,44 @@
       "cover": "cover.jpg",
       "config": "config.json",
       "entrypoint": "render.py",
-      "summary": "九宫格展开与相框掉落；复制为实例后替换素材导出。"
+      "summary": "先交代现场，再中心向外展开九宫格，最后相框掉落接正文。",
+      "styles": [
+        "纪实",
+        "活动回顾",
+        "多画面拼贴",
+        "相框"
+      ],
+      "use_cases": [
+        "培训活动",
+        "企业活动",
+        "入企服务",
+        "vlog",
+        "现场回顾"
+      ],
+      "search_terms": [
+        "九宫格",
+        "联发",
+        "连发",
+        "培训",
+        "活动",
+        "纪实",
+        "现场",
+        "vlog",
+        "相框掉落"
+      ],
+      "pace": "中快",
+      "display_number": false
     },
     {
       "id": "motion-05",
       "number": "05",
       "aliases": [
+        "梯形卡片由上到下展开铺屏",
         "05",
         "M05",
-        "梯形卡片由上到下展开铺屏"
+        "梯形弹窗铺屏"
       ],
-      "name": "梯形卡片由上到下展开铺屏",
+      "name": "梯形弹窗铺屏",
       "path": "references/openers/05-trapezoid-popups",
       "category": "opener",
       "source": "reference",
@@ -132,17 +216,43 @@
       "cover": "cover.jpg",
       "config": "config.json",
       "entrypoint": "index.html",
-      "summary": "梯形卡片由上到下展开铺屏；复制为实例后替换素材导出。"
+      "summary": "弹窗由上到下错峰叠放，形成梯形后铺满画面。",
+      "styles": [
+        "浅色",
+        "层叠",
+        "社交信息流",
+        "快节奏"
+      ],
+      "use_cases": [
+        "评论展示",
+        "观点集中出现",
+        "需求很多",
+        "消息刷屏",
+        "信息爆发"
+      ],
+      "search_terms": [
+        "弹窗",
+        "梯形",
+        "铺满",
+        "刷屏",
+        "评论",
+        "消息",
+        "多条观点",
+        "密集"
+      ],
+      "pace": "快",
+      "display_number": false
     },
     {
       "id": "motion-17",
       "number": "17",
       "aliases": [
+        "上方视频与下方动态音频波形",
         "17",
         "M17",
-        "上方视频与下方动态音频波形"
+        "视频与声音波形展示"
       ],
-      "name": "上方视频与下方动态音频波形",
+      "name": "视频与声音波形展示",
       "path": "mine/middles/17-video-waveform",
       "category": "middle",
       "source": "own",
@@ -168,17 +278,41 @@
       "cover": "cover.jpg",
       "config": "config.json",
       "entrypoint": "index.html",
-      "summary": "上方视频与下方动态音频波形；复制为实例后替换素材导出。"
+      "summary": "上方播放视频，下方展示真实音频波形和播放进度。",
+      "styles": [
+        "黑金",
+        "清晰演示",
+        "简洁"
+      ],
+      "use_cases": [
+        "AI视频展示",
+        "音画同步说明",
+        "生成效果演示",
+        "带声音的视频案例"
+      ],
+      "search_terms": [
+        "视频",
+        "声音",
+        "音频",
+        "波形",
+        "音画同步",
+        "演示",
+        "音效",
+        "试听"
+      ],
+      "pace": "随素材",
+      "display_number": false
     },
     {
       "id": "motion-26",
       "number": "26",
       "aliases": [
+        "封面墙与头像上升点击关注",
         "26",
         "M26",
-        "封面墙与头像上升点击关注"
+        "照片墙关注结尾"
       ],
-      "name": "封面墙与头像上升点击关注",
+      "name": "照片墙关注结尾",
       "path": "mine/closers/26-follow-wall",
       "category": "closer",
       "source": "own",
@@ -206,17 +340,41 @@
       "cover": "cover.jpg",
       "config": "config.json",
       "entrypoint": "index.html",
-      "summary": "封面墙与头像上升点击关注；复制为实例后替换素材导出。"
+      "summary": "压暗的封面墙上，头像与关注贴纸一起升起，手指循环点击。",
+      "styles": [
+        "暗色",
+        "个人品牌",
+        "封面墙",
+        "轻互动"
+      ],
+      "use_cases": [
+        "引导关注",
+        "账号收尾",
+        "个人IP",
+        "教程结束"
+      ],
+      "search_terms": [
+        "关注",
+        "头像",
+        "手指点击",
+        "照片墙",
+        "封面墙",
+        "引导关注",
+        "订阅"
+      ],
+      "pace": "快入场后循环",
+      "display_number": false
     },
     {
       "id": "motion-27",
       "number": "27",
       "aliases": [
+        "黑底打字文案与照片胶片条",
         "27",
         "M27",
-        "黑底打字文案与照片胶片条"
+        "胶片照片谢幕"
       ],
-      "name": "黑底打字文案与照片胶片条",
+      "name": "胶片照片谢幕",
       "path": "mine/closers/27-filmstrip-typewriter",
       "category": "closer",
       "source": "own",
@@ -242,17 +400,45 @@
       "cover": "cover.jpg",
       "config": "config.json",
       "entrypoint": "render.py",
-      "summary": "黑底打字文案与照片胶片条；复制为实例后替换素材导出。"
+      "summary": "左侧文案逐字出现，右侧照片胶片连续滚动。",
+      "styles": [
+        "复古胶片",
+        "黑底",
+        "纪实",
+        "克制",
+        "温暖"
+      ],
+      "use_cases": [
+        "活动总结",
+        "企业培训回顾",
+        "纪录片收尾",
+        "照片回顾",
+        "品牌谢幕"
+      ],
+      "search_terms": [
+        "胶片",
+        "照片",
+        "谢幕",
+        "打字",
+        "高级",
+        "纪实",
+        "活动总结",
+        "回顾",
+        "结束"
+      ],
+      "pace": "舒缓",
+      "display_number": false
     },
     {
       "id": "motion-32",
       "number": "32",
       "aliases": [
+        "标题逐字从大且模糊收缩清晰",
         "32",
         "M32",
-        "标题逐字从大且模糊收缩清晰"
+        "逐字聚焦标题"
       ],
-      "name": "标题逐字从大且模糊收缩清晰",
+      "name": "逐字聚焦标题",
       "path": "references/middles/32-title-focus",
       "category": "middle",
       "source": "reference",
@@ -279,7 +465,30 @@
       "cover": "cover.jpg",
       "config": "config.json",
       "entrypoint": "index.html",
-      "summary": "标题逐字从大且模糊收缩清晰；仅保存参考，调用时先复刻。"
+      "summary": "每个字从大且模糊缩到清晰固定位置；目前只有参考，需先复刻。",
+      "styles": [
+        "文字为主",
+        "简洁",
+        "聚焦",
+        "精致"
+      ],
+      "use_cases": [
+        "短标题强调",
+        "章节标题",
+        "关键词强调"
+      ],
+      "search_terms": [
+        "标题",
+        "逐字",
+        "模糊",
+        "清晰",
+        "聚焦",
+        "大字",
+        "收缩",
+        "虚到实"
+      ],
+      "pace": "短促",
+      "display_number": false
     }
   ]
 }

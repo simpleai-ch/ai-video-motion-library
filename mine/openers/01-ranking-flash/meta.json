@@ -2,11 +2,12 @@
   "id": "motion-01",
   "number": "01",
   "aliases": [
+    "工具榜单快闪与卡片归位",
     "01",
     "M01",
-    "工具榜单快闪与卡片归位"
+    "快闪榜单开场"
   ],
-  "name": "工具榜单快闪与卡片归位",
+  "name": "快闪榜单开场",
   "path": "mine/openers/01-ranking-flash",
   "category": "opener",
   "source": "own",
@@ -33,5 +34,27 @@
   "cover": "cover.jpg",
   "config": "config.json",
   "entrypoint": "index.html",
-  "summary": "工具榜单快闪与卡片归位；复制为实例后替换素材导出。"
+  "summary": "短促换画、编号强调，随后卡片归位；适合有多组素材的盘点开场。",
+  "styles": [
+    "黑金",
+    "科技感",
+    "信息密集",
+    "快节奏"
+  ],
+  "use_cases": [
+    "工具盘点",
+    "产品榜单",
+    "多个功能介绍",
+    "快速吸引注意力"
+  ],
+  "search_terms": [
+    "快闪",
+    "快速开场",
+    "排名",
+    "工具",
+    "节奏快",
+    "冲击力"
+  ],
+  "pace": "快",
+  "display_number": false
 }

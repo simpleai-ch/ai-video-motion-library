@@ -1,4 +1,7 @@
-# 02 九宫格展开与相框掉落
+# 九宫格纪实开场
+
+适合：培训活动、企业活动、入企服务、vlog、现场回顾。
+风格：纪实、活动回顾、多画面拼贴、相框。节奏：中快。
 
 分类：opener；状态：used；规格：2688×1512 / 30fps / 7.333秒。
 
@@ -10,10 +13,10 @@
 
 ## 调用
 
-读取根目录catalog.json，找到编号02，先复制实例，保留本条目原件：
+读取根目录catalog.json，按名称或视频需求选择“九宫格纪实开场”，先复制实例，保留本条目原件：
 
 ```bash
-python motion.py new 02 新视频-02
+python motion.py new "九宫格纪实开场" 新视频-02
 python motion.py validate instances/新视频-02
 python motion.py render instances/新视频-02
 ```

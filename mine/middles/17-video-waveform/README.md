@@ -1,4 +1,7 @@
-# 17 上方视频与下方动态音频波形
+# 视频与声音波形展示
+
+适合：AI视频展示、音画同步说明、生成效果演示、带声音的视频案例。
+风格：黑金、清晰演示、简洁。节奏：随素材。
 
 分类：middle；状态：used；规格：1080×1920 / 30fps / 9.467秒。
 
@@ -10,10 +13,10 @@
 
 ## 调用
 
-读取根目录catalog.json，找到编号17，先复制实例，保留本条目原件：
+读取根目录catalog.json，按名称或视频需求选择“视频与声音波形展示”，先复制实例，保留本条目原件：
 
 ```bash
-python motion.py new 17 新视频-17
+python motion.py new "视频与声音波形展示" 新视频-17
 python motion.py validate instances/新视频-17
 python motion.py render instances/新视频-17
 ```

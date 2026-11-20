@@ -1,67 +1,43 @@
-# AI 视频动效库 ai-video-motion-library
+# AI 视频动效库
 
-AI 剪辑用的动效模板：开头 / 中间 / 结尾。每个动效一个文件夹，浏览器打开 `index.html` 就能播放，文字、颜色、时长可以在顶部的 CONFIG 里改。
+直接描述你的视频和想要的感觉，让AI从仓库选择动效。**不需要记编号，也不需要安装Skill。**
 
-## 目录结构
-```
-mine/              自己视频里做过、用过的动效
-  openers/         开头
-  middles/         中间
-  closers/         结尾
-references/        参考别人视频的动效（已复刻或待复刻）
-  openers/
-  middles/
-  closers/
-catalog.json       总目录：所有动效的位置、来源、状态、风格标签
-```
+## 以后这样说
 
-每个动效文件夹包含：
-- `index.html`：动效本体（可替换内容在顶部的 CONFIG 里）
-- `meta.json`：风格总结、适用场景、可编辑字段
-- `preview.gif` / `cover.png`：预览
-- `README.md`：镜头顺序和时间点
-- `assets/`：参考图、IP 素材等
+> 去 https://github.com/simpleai-ch/ai-video-motion-library 选合适的动效，帮我剪这条视频。内容是企业培训活动回顾，整体有纪实感，开头利落，结尾简洁温暖。文案和素材在……，先给动态预览。
 
-## 状态字段
-`catalog.json` 和 `meta.json` 里的 `status`：
-- `idea`：只存了参考素材，还没做
-- `recreated`：已复刻，可以用
-- `used`：已在自己视频里用过（同时在 `used_in` 记下视频名）
+> 给这条AI工具盘点选一个节奏快、有科技感的开头，中间重点展示视频与声音效果，结尾引导关注。
 
-参考动效用进自己的视频后，复制一份到 `mine/` 对应分类下，作为自己的版本。
+> 从库里找一个高级一点的照片回顾结尾，不要关注贴纸。
 
-## 新增一个动效
-1. 先判断是自己的（`mine/`）还是参考的（`references/`），再选开头 / 中间 / 结尾
-2. 新建文件夹，放入 `index.html`、`meta.json`、预览图
-3. 在 `catalog.json` 里加一条
+AI会按内容用途、风格、使用位置、节奏和素材需求筛选，读取具体工程，再替换为新内容。库里没有合适效果时，会说明差距，不强行套用。
 
-## 调用方式
-在对话里说“从动效库里找一个暗黑科技风的开头”，Claude 读取 `catalog.json` 按标签筛选，取出动效，按新视频内容改 CONFIG，再导出视频。
+## 已有的效果
 
+|效果名称|适合什么内容|位置|状态|
+|---|---|---|---|
+|[暗黑科技关系网络](references/middles/ai-editor-network)|多工具协作、AI功能解释、关系说明|中间|已制作待用|
+|[快闪榜单开场](mine/openers/01-ranking-flash)|工具盘点、产品榜单、多个功能介绍|开头|已用过|
+|[九宫格纪实开场](mine/openers/02-grid-reveal)|培训活动、企业活动、入企服务|开头|已用过|
+|[梯形弹窗铺屏](references/openers/05-trapezoid-popups)|评论展示、观点集中出现、需求很多|开头|已制作待用|
+|[视频与声音波形展示](mine/middles/17-video-waveform)|AI视频展示、音画同步说明、生成效果演示|中间|已用过|
+|[照片墙关注结尾](mine/closers/26-follow-wall)|引导关注、账号收尾、个人IP|结尾|已用过|
+|[胶片照片谢幕](mine/closers/27-filmstrip-typewriter)|活动总结、企业培训回顾、纪录片收尾|结尾|已用过|
+|[逐字聚焦标题](references/middles/32-title-focus)|短标题强调、章节标题、关键词强调|中间|参考待复刻|
 
-## 已加入的编号动效（2026-11-20）
+## 仓库结构
 
-不需要安装Skill。下次把本仓库链接和编号交给AI即可；AI先读catalog.json及AGENTS.md，再复制模板替换内容。
+- mine/openers、middles、closers：自己视频中用过的开头、中间、结尾。
+- references/openers、middles、closers：参考或待用效果。
+- catalog.json：AI检索目录，含风格、适合内容、素材需求、状态和路径。
+- index.html：可按文字、风格、用途和位置筛选的本地预览目录。
+- AGENTS.md：供AI阅读的选择与复用规则。
 
-|编号|动效|分类|状态|预览与工程|
-|---|---|---|---|---|
-|01|工具榜单快闪与卡片归位|opener|used|[查看](mine/openers/01-ranking-flash)|
-|02|九宫格展开与相框掉落|opener|used|[查看](mine/openers/02-grid-reveal)|
-|05|梯形卡片由上到下展开铺屏|opener|recreated|[查看](references/openers/05-trapezoid-popups)|
-|17|上方视频与下方动态音频波形|middle|used|[查看](mine/middles/17-video-waveform)|
-|26|封面墙与头像上升点击关注|closer|used|[查看](mine/closers/26-follow-wall)|
-|27|黑底打字文案与照片胶片条|closer|used|[查看](mine/closers/27-filmstrip-typewriter)|
-|32|标题逐字从大且模糊收缩清晰|middle|idea|[查看](references/middles/32-title-focus)|
+每项的README.md和meta.json说明如何换内容；config.json为新项目配置。Python条目的index.html只播放示例，可编辑渲染工程是render.py；浏览器条目可编辑HTML/Canvas。逐字聚焦标题目前只有参考，选用前需复刻。
 
-### 下次直接这样说
+## 本机运行（可交给AI执行）
 
-> 从 https://github.com/simpleai-ch/ai-video-motion-library 调用01做开头、17做中间展示、26做结尾。新文案是……，素材路径是……，输出9:16，先给动态预览。
-
-> 按仓库32的参考效果复刻标题“……”，先出预览。
-
-### 本机运行
-
-安装Git LFS后克隆（视频及开源字体使用LFS存储），再安装运行依赖：
+视频与开源字体使用Git LFS；安装Git LFS后执行：
 
 ```bash
 git clone https://github.com/simpleai-ch/ai-video-motion-library.git
@@ -70,14 +46,14 @@ git lfs pull
 python -m pip install -r requirements.txt
 npm install
 npx playwright install chromium
-python motion.py list
-python motion.py new 01 我的新视频
-python motion.py validate instances/我的新视频
-python motion.py render instances/我的新视频
+python motion.py search "培训活动回顾的纪实开头"
+python motion.py new "九宫格纪实开场" 新培训视频
+python motion.py validate instances/新培训视频
+python motion.py render instances/新培训视频
 ```
 
-FFmpeg需在PATH中，或设置FFMPEG环境变量为可执行文件路径。可用CHROME_EXECUTABLE指定已安装的Chrome。用`python -m http.server 8000`后打开http://localhost:8000/index.html浏览目录；浏览器条目可通过各自index.html播放，修改config.json后执行渲染会同步配置。
+FFmpeg需在PATH中，或用FFMPEG环境变量指定。可用CHROME_EXECUTABLE指定已安装Chrome。运行`python -m http.server 8000`后访问http://localhost:8000/index.html浏览预览。
 
-Python条目02/27的index.html是预览播放器，可编辑渲染程序为render.py；01/05/17/26为HTML/Canvas模板。32仅为参考，不提供假定已完成的复刻工程。新实例保存在instances，默认不提交到仓库。
+原模板保留，新项目位于instances，默认不提交。默认画幅不同，换画幅时需重新排版。旧编号仅用于内部兼容，旧调用仍有效。
 
-媒体与模板代码分开维护；示例素材不等于授权用于任意商业发布。Noto字体许可证见shared/fonts/OFL.txt；Windows系统字体不随仓库分发。
+Noto字体许可证见shared/fonts/OFL.txt，Windows系统字体不随仓库分发。示例素材不等于授权用于任意商业发布。

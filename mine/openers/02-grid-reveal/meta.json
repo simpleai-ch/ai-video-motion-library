@@ -2,11 +2,12 @@
   "id": "motion-02",
   "number": "02",
   "aliases": [
+    "九宫格展开与相框掉落",
     "02",
     "M02",
-    "九宫格展开与相框掉落"
+    "九宫格纪实开场"
   ],
-  "name": "九宫格展开与相框掉落",
+  "name": "九宫格纪实开场",
   "path": "mine/openers/02-grid-reveal",
   "category": "opener",
   "source": "own",
@@ -33,5 +34,31 @@
   "cover": "cover.jpg",
   "config": "config.json",
   "entrypoint": "render.py",
-  "summary": "九宫格展开与相框掉落；复制为实例后替换素材导出。"
+  "summary": "先交代现场，再中心向外展开九宫格，最后相框掉落接正文。",
+  "styles": [
+    "纪实",
+    "活动回顾",
+    "多画面拼贴",
+    "相框"
+  ],
+  "use_cases": [
+    "培训活动",
+    "企业活动",
+    "入企服务",
+    "vlog",
+    "现场回顾"
+  ],
+  "search_terms": [
+    "九宫格",
+    "联发",
+    "连发",
+    "培训",
+    "活动",
+    "纪实",
+    "现场",
+    "vlog",
+    "相框掉落"
+  ],
+  "pace": "中快",
+  "display_number": false
 }

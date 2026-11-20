@@ -1,4 +1,7 @@
-# 01 工具榜单快闪与卡片归位
+# 快闪榜单开场
+
+适合：工具盘点、产品榜单、多个功能介绍、快速吸引注意力。
+风格：黑金、科技感、信息密集、快节奏。节奏：快。
 
 分类：opener；状态：used；规格：1080×1920 / 30fps / 5.200秒。
 
@@ -10,10 +13,10 @@
 
 ## 调用
 
-读取根目录catalog.json，找到编号01，先复制实例，保留本条目原件：
+读取根目录catalog.json，按名称或视频需求选择“快闪榜单开场”，先复制实例，保留本条目原件：
 
 ```bash
-python motion.py new 01 新视频-01
+python motion.py new "快闪榜单开场" 新视频-01
 python motion.py validate instances/新视频-01
 python motion.py render instances/新视频-01
 ```

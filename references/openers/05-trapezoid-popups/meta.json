@@ -2,11 +2,12 @@
   "id": "motion-05",
   "number": "05",
   "aliases": [
+    "梯形卡片由上到下展开铺屏",
     "05",
     "M05",
-    "梯形卡片由上到下展开铺屏"
+    "梯形弹窗铺屏"
   ],
-  "name": "梯形卡片由上到下展开铺屏",
+  "name": "梯形弹窗铺屏",
   "path": "references/openers/05-trapezoid-popups",
   "category": "opener",
   "source": "reference",
@@ -31,5 +32,30 @@
   "cover": "cover.jpg",
   "config": "config.json",
   "entrypoint": "index.html",
-  "summary": "梯形卡片由上到下展开铺屏；复制为实例后替换素材导出。"
+  "summary": "弹窗由上到下错峰叠放，形成梯形后铺满画面。",
+  "styles": [
+    "浅色",
+    "层叠",
+    "社交信息流",
+    "快节奏"
+  ],
+  "use_cases": [
+    "评论展示",
+    "观点集中出现",
+    "需求很多",
+    "消息刷屏",
+    "信息爆发"
+  ],
+  "search_terms": [
+    "弹窗",
+    "梯形",
+    "铺满",
+    "刷屏",
+    "评论",
+    "消息",
+    "多条观点",
+    "密集"
+  ],
+  "pace": "快",
+  "display_number": false
 }

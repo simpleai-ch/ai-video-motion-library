@@ -2,11 +2,12 @@
   "id": "motion-26",
   "number": "26",
   "aliases": [
+    "封面墙与头像上升点击关注",
     "26",
     "M26",
-    "封面墙与头像上升点击关注"
+    "照片墙关注结尾"
   ],
-  "name": "封面墙与头像上升点击关注",
+  "name": "照片墙关注结尾",
   "path": "mine/closers/26-follow-wall",
   "category": "closer",
   "source": "own",
@@ -34,5 +35,28 @@
   "cover": "cover.jpg",
   "config": "config.json",
   "entrypoint": "index.html",
-  "summary": "封面墙与头像上升点击关注；复制为实例后替换素材导出。"
+  "summary": "压暗的封面墙上，头像与关注贴纸一起升起，手指循环点击。",
+  "styles": [
+    "暗色",
+    "个人品牌",
+    "封面墙",
+    "轻互动"
+  ],
+  "use_cases": [
+    "引导关注",
+    "账号收尾",
+    "个人IP",
+    "教程结束"
+  ],
+  "search_terms": [
+    "关注",
+    "头像",
+    "手指点击",
+    "照片墙",
+    "封面墙",
+    "引导关注",
+    "订阅"
+  ],
+  "pace": "快入场后循环",
+  "display_number": false
 }

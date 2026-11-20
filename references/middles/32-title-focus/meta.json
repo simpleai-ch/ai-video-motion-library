@@ -2,11 +2,12 @@
   "id": "motion-32",
   "number": "32",
   "aliases": [
+    "标题逐字从大且模糊收缩清晰",
     "32",
     "M32",
-    "标题逐字从大且模糊收缩清晰"
+    "逐字聚焦标题"
   ],
-  "name": "标题逐字从大且模糊收缩清晰",
+  "name": "逐字聚焦标题",
   "path": "references/middles/32-title-focus",
   "category": "middle",
   "source": "reference",
@@ -33,5 +34,28 @@
   "cover": "cover.jpg",
   "config": "config.json",
   "entrypoint": "index.html",
-  "summary": "标题逐字从大且模糊收缩清晰；仅保存参考，调用时先复刻。"
+  "summary": "每个字从大且模糊缩到清晰固定位置；目前只有参考，需先复刻。",
+  "styles": [
+    "文字为主",
+    "简洁",
+    "聚焦",
+    "精致"
+  ],
+  "use_cases": [
+    "短标题强调",
+    "章节标题",
+    "关键词强调"
+  ],
+  "search_terms": [
+    "标题",
+    "逐字",
+    "模糊",
+    "清晰",
+    "聚焦",
+    "大字",
+    "收缩",
+    "虚到实"
+  ],
+  "pace": "短促",
+  "display_number": false
 }

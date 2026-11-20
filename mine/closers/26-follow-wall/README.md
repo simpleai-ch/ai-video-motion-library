@@ -1,4 +1,7 @@
-# 26 封面墙与头像上升点击关注
+# 照片墙关注结尾
+
+适合：引导关注、账号收尾、个人IP、教程结束。
+风格：暗色、个人品牌、封面墙、轻互动。节奏：快入场后循环。
 
 分类：closer；状态：used；规格：1080×1920 / 30fps / 4.467秒。
 
@@ -10,10 +13,10 @@
 
 ## 调用
 
-读取根目录catalog.json，找到编号26，先复制实例，保留本条目原件：
+读取根目录catalog.json，按名称或视频需求选择“照片墙关注结尾”，先复制实例，保留本条目原件：
 
 ```bash
-python motion.py new 26 新视频-26
+python motion.py new "照片墙关注结尾" 新视频-26
 python motion.py validate instances/新视频-26
 python motion.py render instances/新视频-26
 ```

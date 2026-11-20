@@ -1,4 +1,7 @@
-# 27 黑底打字文案与照片胶片条
+# 胶片照片谢幕
+
+适合：活动总结、企业培训回顾、纪录片收尾、照片回顾、品牌谢幕。
+风格：复古胶片、黑底、纪实、克制、温暖。节奏：舒缓。
 
 分类：closer；状态：used；规格：2688×1512 / 30fps / 3.600秒。
 
@@ -10,10 +13,10 @@
 
 ## 调用
 
-读取根目录catalog.json，找到编号27，先复制实例，保留本条目原件：
+读取根目录catalog.json，按名称或视频需求选择“胶片照片谢幕”，先复制实例，保留本条目原件：
 
 ```bash
-python motion.py new 27 新视频-27
+python motion.py new "胶片照片谢幕" 新视频-27
 python motion.py validate instances/新视频-27
 python motion.py render instances/新视频-27
 ```

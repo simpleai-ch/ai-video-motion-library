@@ -3,12 +3,19 @@ import argparse,json,shutil,subprocess,sys,os,re,math,array
 ROOT=Path(__file__).resolve().parent
 p=argparse.ArgumentParser(description='从动效库复制实例并渲染');s=p.add_subparsers(dest='cmd',required=True)
 s.add_parser('list')
+a=s.add_parser('search');a.add_argument('query');a.add_argument('--stage',choices=['opener','middle','closer']);a.add_argument('--limit',type=int,default=3)
 a=s.add_parser('new');a.add_argument('effect');a.add_argument('name')
 for name in ['validate','render']:
  a=s.add_parser(name);a.add_argument('project')
 args=p.parse_args();cat=json.loads((ROOT/'catalog.json').read_text(encoding='utf-8'))['effects']
 if args.cmd=='list':
- for t in cat:print(t.get('number',t['id']),t['name'],t['category'],t['status'])
+ for t in cat:print(t['name'],t['category'],t['status'])
+ sys.exit(0)
+if args.cmd=='search':
+ from tools.search_effects import search_effects
+ found=search_effects(cat,args.query,args.stage,args.limit)
+ if not found:print('没有明确匹配；请查看catalog.json，由AI根据内容选择或说明缺口。')
+ for e,score,matched in found:print(json.dumps({'name':e['name'],'path':e['path'],'status':e['status'],'matched':matched,'use_cases':e['use_cases']},ensure_ascii=False))
  sys.exit(0)
 if args.cmd=='new':
  key=args.effect.upper().lstrip('M');key=key.zfill(2) if key.isdigit() else args.effect
@@ -24,7 +31,7 @@ if args.cmd=='new':
 d=Path(args.project).resolve()
 if not d.is_relative_to(ROOT):raise SystemExit('实例需位于仓库内')
 cfg=json.loads((d/'config.json').read_text(encoding='utf-8'));engine=cfg['engine'];files=[]
-if engine=='reference':raise SystemExit('32为参考条目，尚无可替换文案的渲染工程；请先按README复刻。')
+if engine=='reference':raise SystemExit('该标题效果为参考条目，尚无可替换文案的渲染工程；请先按README复刻。')
 for k in ['audio','presenter','video','foreground_video','avatar','cover']:
  if cfg.get(k) and (k!='presenter' or cfg.get('show_presenter')):files.append(cfg[k])
 files += [i['image'] for i in cfg.get('items',[])]+cfg.get('wall_images',[])+cfg.get('foreground_frames',[])+cfg.get('photos',[])+[v['file'] for v in cfg.get('clips',{}).values()]
