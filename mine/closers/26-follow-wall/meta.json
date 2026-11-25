@@ -31,10 +31,10 @@
   "editable_fields": "wall_images, wall_opacity, avatar, foreground_frames, rise_frames, audio",
   "used_in": "工具榜单v10、LibTV结尾",
   "provenance": "工具榜单v10、LibTV结尾",
-  "preview": "preview.mp4",
+  "preview": "preview.gif",
   "cover": "cover.jpg",
   "config": "config.json",
-  "entrypoint": "index.html",
+  "entrypoint": "scene.html",
   "summary": "压暗的封面墙上，头像与关注贴纸一起升起，手指循环点击。",
   "styles": [
     "暗色",
@@ -58,5 +58,8 @@
     "订阅"
   ],
   "pace": "快入场后循环",
-  "display_number": false
+  "display_number": false,
+  "preview_video": "preview.mp4",
+  "preview_note": "动效预览",
+  "viewer": "index.html"
 }

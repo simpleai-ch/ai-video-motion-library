@@ -54,3 +54,5 @@ if engine=='browser':
  if not node:raise SystemExit('请安装Node.js并运行npm install')
  subprocess.run([node,str(ROOT/'tools/render-browser.cjs'),str(d)],env=env,check=True)
 else:subprocess.run([sys.executable,str(d/'render.py')],cwd=d,env=env,check=True)
+
+(d/'config.js').write_text('window.MOTION_CONFIG='+json.dumps(cfg,ensure_ascii=False)+';window.MOTION_OUTPUT="rendered.mp4";',encoding='utf-8')

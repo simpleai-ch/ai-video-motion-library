@@ -1,39 +1,54 @@
 # AI 视频动效库
 
-直接描述你的视频和想要的感觉，让AI从仓库选择动效。**不需要记编号，也不需要安装Skill。**
+先看动图，再按视频内容和风格选。直接告诉AI“给这条培训回顾选合适的开头”“给工具盘点配科技感动效”即可，不需要记编号。
 
-## 以后这样说
+点击效果名称可进入详细页，查看完整动图、镜头顺序和替换内容。
 
-> 去 https://github.com/simpleai-ch/ai-video-motion-library 选合适的动效，帮我剪这条视频。内容是企业培训活动回顾，整体有纪实感，开头利落，结尾简洁温暖。文案和素材在……，先给动态预览。
+## 开头
 
-> 给这条AI工具盘点选一个节奏快、有科技感的开头，中间重点展示视频与声音效果，结尾引导关注。
+<table>
+<tr>
+<td width="33%" align="center"><a href="mine/openers/01-ranking-flash"><img src="mine/openers/01-ranking-flash/preview.gif" height="180" alt="快闪榜单开场"><br><b>快闪榜单开场</b></a><br>已用过<br>工具盘点、产品榜单</td>
+<td width="33%" align="center"><a href="mine/openers/02-grid-reveal"><img src="mine/openers/02-grid-reveal/preview.gif" height="180" alt="九宫格纪实开场"><br><b>九宫格纪实开场</b></a><br>已用过<br>培训活动、企业活动</td>
+<td width="33%" align="center"><a href="references/openers/05-trapezoid-popups"><img src="references/openers/05-trapezoid-popups/preview.gif" height="180" alt="梯形弹窗铺屏"><br><b>梯形弹窗铺屏</b></a><br>已制作待用<br>评论展示、观点集中出现</td>
+</tr>
+</table>
 
-> 从库里找一个高级一点的照片回顾结尾，不要关注贴纸。
+## 中间
 
-AI会按内容用途、风格、使用位置、节奏和素材需求筛选，读取具体工程，再替换为新内容。库里没有合适效果时，会说明差距，不强行套用。
+<table>
+<tr>
+<td width="33%" align="center"><a href="references/middles/ai-editor-network"><img src="references/middles/ai-editor-network/preview.gif" height="180" alt="暗黑科技关系网络"><br><b>暗黑科技关系网络</b></a><br>已制作待用<br>多工具协作、AI功能解释</td>
+<td width="33%" align="center"><a href="mine/middles/17-video-waveform"><img src="mine/middles/17-video-waveform/preview.gif" height="180" alt="视频与声音波形展示"><br><b>视频与声音波形展示</b></a><br>已用过<br>AI视频展示、音画同步说明</td>
+<td width="33%" align="center"><a href="references/middles/32-title-focus"><img src="references/middles/32-title-focus/preview.gif" height="180" alt="逐字聚焦标题"><br><b>逐字聚焦标题</b></a><br>参考待复刻<br>短标题强调、章节标题</td>
+</tr>
+</table>
 
-## 已有的效果
+## 结尾
 
-|效果名称|适合什么内容|位置|状态|
-|---|---|---|---|
-|[暗黑科技关系网络](references/middles/ai-editor-network)|多工具协作、AI功能解释、关系说明|中间|已制作待用|
-|[快闪榜单开场](mine/openers/01-ranking-flash)|工具盘点、产品榜单、多个功能介绍|开头|已用过|
-|[九宫格纪实开场](mine/openers/02-grid-reveal)|培训活动、企业活动、入企服务|开头|已用过|
-|[梯形弹窗铺屏](references/openers/05-trapezoid-popups)|评论展示、观点集中出现、需求很多|开头|已制作待用|
-|[视频与声音波形展示](mine/middles/17-video-waveform)|AI视频展示、音画同步说明、生成效果演示|中间|已用过|
-|[照片墙关注结尾](mine/closers/26-follow-wall)|引导关注、账号收尾、个人IP|结尾|已用过|
-|[胶片照片谢幕](mine/closers/27-filmstrip-typewriter)|活动总结、企业培训回顾、纪录片收尾|结尾|已用过|
-|[逐字聚焦标题](references/middles/32-title-focus)|短标题强调、章节标题、关键词强调|中间|参考待复刻|
+<table>
+<tr>
+<td width="33%" align="center"><a href="mine/closers/26-follow-wall"><img src="mine/closers/26-follow-wall/preview.gif" height="180" alt="照片墙关注结尾"><br><b>照片墙关注结尾</b></a><br>已用过<br>引导关注、账号收尾</td>
+<td width="33%" align="center"><a href="mine/closers/27-filmstrip-typewriter"><img src="mine/closers/27-filmstrip-typewriter/preview.gif" height="180" alt="胶片照片谢幕"><br><b>胶片照片谢幕</b></a><br>已用过<br>活动总结、企业培训回顾</td>
+</tr>
+</table>
 
-## 仓库结构
+## 怎么调用
 
-- mine/openers、middles、closers：自己视频中用过的开头、中间、结尾。
-- references/openers、middles、closers：参考或待用效果。
-- catalog.json：AI检索目录，含风格、适合内容、素材需求、状态和路径。
-- index.html：可按文字、风格、用途和位置筛选的本地预览目录。
-- AGENTS.md：供AI阅读的选择与复用规则。
+> 去 https://github.com/simpleai-ch/ai-video-motion-library 选合适的动效。内容是企业培训活动回顾，整体纪实，开头利落，结尾简洁温暖。文案和素材在……，先给动态预览。
 
-每项的README.md和meta.json说明如何换内容；config.json为新项目配置。Python条目的index.html只播放示例，可编辑渲染工程是render.py；浏览器条目可编辑HTML/Canvas。逐字聚焦标题目前只有参考，选用前需复刻。
+AI会根据主题、用途、位置、风格、节奏和素材条件筛选，读取具体工程，再替换为新内容。没有匹配项时说明差距，不强行套用。
+
+## 分类与文件
+
+- `mine/`：在自己视频中使用过；`references/`：参考或待用。
+- 两者均按 `openers/`、`middles/`、`closers/` 区分开头、中间、结尾。
+- 每项先看 `README.md` 和 `preview.gif`；细查时打开带进度条的 `index.html`。
+- `scene.html` 或 `render.py` 是动画工程，`config.json` 是替换配置，`meta.json` 供AI检索。
+- `catalog.json` 保留风格、用途、素材需求与状态；编号只作内部兼容。
+
+<details>
+<summary>本机运行与AI复用说明</summary>
 
 ## 本机运行（可交给AI执行）
 
@@ -57,3 +72,5 @@ FFmpeg需在PATH中，或用FFMPEG环境变量指定。可用CHROME_EXECUTABLE�
 原模板保留，新项目位于instances，默认不提交。默认画幅不同，换画幅时需重新排版。旧编号仅用于内部兼容，旧调用仍有效。
 
 Noto字体许可证见shared/fonts/OFL.txt，Windows系统字体不随仓库分发。示例素材不等于授权用于任意商业发布。
+
+</details>

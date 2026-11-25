@@ -1,1 +1,21 @@
-<!doctype html><meta charset="utf-8"><h1>32 标题逐字聚焦 · 参考待复刻</h1><p>每个字由大且模糊收缩到清晰固定位置；不是可替换文案的成品模板。</p><video controls loop src="preview.mp4" style="width:100%;max-height:80vh"></video>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>逐字聚焦标题</title>
+  <link rel="stylesheet" href="../../../shared/viewer/viewer.css">
+</head>
+<body>
+  <div id="viewport"><iframe id="scene" title="可编辑动效" hidden></iframe><video id="video" muted playsinline></video></div>
+  <div id="title"></div>
+  <footer>
+    <button id="play" type="button">暂停</button><button id="replay" type="button">重播</button>
+    <input id="scrub" type="range" min="0" value="0" step="0.01" aria-label="播放进度">
+    <span id="clock"></span><label><input id="loop" type="checkbox" checked>循环</label>
+  </footer>
+  <script src="config.js"></script>
+  <script>window.VIEWER={"title": "逐字聚焦标题 · 参考待复刻", "engine": "reference", "stageHeight": 720}</script>
+  <script src="../../../shared/viewer/viewer.js"></script>
+</body>
+</html>

@@ -29,7 +29,7 @@
   "editable_fields": "lines, photos, film_top, film_bottom, font, audio",
   "used_in": "联发集团原生高清结尾",
   "provenance": "联发集团原生高清结尾",
-  "preview": "preview.mp4",
+  "preview": "preview.gif",
   "cover": "cover.jpg",
   "config": "config.json",
   "entrypoint": "render.py",
@@ -60,5 +60,8 @@
     "结束"
   ],
   "pace": "舒缓",
-  "display_number": false
+  "display_number": false,
+  "preview_video": "preview.mp4",
+  "preview_note": "动效预览",
+  "viewer": "index.html"
 }

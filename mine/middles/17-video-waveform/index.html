@@ -1,6 +1,21 @@
-<!doctype html><meta charset="utf-8"><style>*{box-sizing:border-box}body{margin:0;background:#181710}canvas{position:absolute;inset:0}video{position:absolute;left:0;top:200px;width:1080px;height:620px;object-fit:contain}</style><canvas width="1080" height="1920" id="c"></canvas><video id="clip" muted playsinline preload="auto"></video><script src="config.js"></script><script src="wave.js"></script><script>
-const cfg=window.MOTION_CONFIG,v=document.querySelector('video'),g=document.querySelector('canvas').getContext('2d');v.src=cfg.video;window.draw=f=>{let t=f/cfg.fps;g.fillStyle=cfg.background;g.fillRect(0,0,1080,1920);g.font='bold 46px sans-serif';g.fillStyle=cfg.accent;g.fillText(cfg.title,45,130);g.fillStyle='#211e17';g.beginPath();g.roundRect(45,890,990,405,18);g.fill();g.fillStyle=cfg.accent;g.fillText('对应音频',75,950);const vals=window.WAVE,peak=Math.max(...vals)||1,start=Math.max(0,t-2);for(let i=0;i<155;i++){let time=start+i/155*6,sample=Math.min(vals.length-1,Math.floor(time/(cfg.duration_frames/cfg.fps)*vals.length)),h=Math.max(5,vals[sample]/peak*160);g.fillStyle=time<t?cfg.accent:'#6a604d';g.fillRect(75+i*6,1070-h/2,3,h)}g.fillStyle='#f3e4b9';g.fillRect(75+(t-start)/6*930,970,2,200);g.font='25px sans-serif';g.fillText('▶ '+t.toFixed(1)+'s',75,1250);g.fillStyle='white';g.fillText(cfg.source_label,650,1370)};window.seekFrame=async f=>{draw(f);if(v.readyState<1)await new Promise(r=>v.addEventListener('loadedmetadata',r,{once:true}));let t=Math.min(v.duration-.04,f/cfg.fps);if(Math.abs(v.currentTime-t)>.005)await new Promise(r=>{v.addEventListener('seeked',r,{once:true});v.currentTime=t})};window.MOTION_READY=true;draw(0);
-</script>
-
-
-<script src="/tools/play.js"></script>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>视频与声音波形展示</title>
+  <link rel="stylesheet" href="../../../shared/viewer/viewer.css">
+</head>
+<body>
+  <div id="viewport"><iframe id="scene" title="可编辑动效" hidden></iframe><video id="video" muted playsinline></video></div>
+  <div id="title"></div>
+  <footer>
+    <button id="play" type="button">暂停</button><button id="replay" type="button">重播</button>
+    <input id="scrub" type="range" min="0" value="0" step="0.01" aria-label="播放进度">
+    <span id="clock"></span><label><input id="loop" type="checkbox" checked>循环</label>
+  </footer>
+  <script src="config.js"></script>
+  <script>window.VIEWER={"title": "视频与声音波形展示", "engine": "browser", "stageHeight": 1390}</script>
+  <script src="../../../shared/viewer/viewer.js"></script>
+</body>
+</html>

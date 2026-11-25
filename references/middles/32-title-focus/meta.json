@@ -30,7 +30,7 @@
   "editable_fields": "text, width, height；目前只有参考，不是可直接渲染的文字模板",
   "used_in": null,
   "provenance": "参考01，原作者待补充",
-  "preview": "preview.mp4",
+  "preview": "preview.gif",
   "cover": "cover.jpg",
   "config": "config.json",
   "entrypoint": "index.html",
@@ -57,5 +57,8 @@
     "虚到实"
   ],
   "pace": "短促",
-  "display_number": false
+  "display_number": false,
+  "preview_video": "preview.mp4",
+  "preview_note": "参考片中的标题局部，尚未复刻",
+  "viewer": "index.html"
 }

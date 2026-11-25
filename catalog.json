@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "fields": {
     "category": "opener 开头 | middle 中间 | closer 结尾",
     "source": "own 自己做过/用过（mine/） | reference 参考别人的（references/）",
@@ -8,7 +8,11 @@
     "use_cases": "适合的内容与叙事用途",
     "search_terms": "自然语言别名与描述",
     "pace": "默认节奏；可按新口播调整",
-    "number": "内部兼容编号，用户不需要记忆"
+    "number": "内部兼容编号，用户不需要记忆",
+    "preview": "直接在GitHub上显示的GIF",
+    "preview_video": "高清MP4预览",
+    "viewer": "带播放与进度条的index.html",
+    "entrypoint": "可编辑动效源文件，与预览播放器区分"
   },
   "effects": [
     {
@@ -90,10 +94,10 @@
       "editable_fields": "items, heading, subheading, captions, presenter, show_presenter, audio, timing",
       "used_in": "工具榜单v10",
       "provenance": "工具榜单v10",
-      "preview": "preview.mp4",
+      "preview": "preview.gif",
       "cover": "cover.jpg",
       "config": "config.json",
-      "entrypoint": "index.html",
+      "entrypoint": "scene.html",
       "summary": "短促换画、编号强调，随后卡片归位；适合有多组素材的盘点开场。",
       "styles": [
         "黑金",
@@ -116,7 +120,10 @@
         "冲击力"
       ],
       "pace": "快",
-      "display_number": false
+      "display_number": false,
+      "preview_video": "preview.mp4",
+      "preview_note": "动效主体预览，隐藏示例口播人物和字幕",
+      "viewer": "index.html"
     },
     {
       "id": "motion-02",
@@ -150,7 +157,7 @@
       "editable_fields": "cover, cover_crop, title, title_position, center_title, clips, audio, grid_lines",
       "used_in": "联发集团最终修订版",
       "provenance": "联发集团最终修订版",
-      "preview": "preview.mp4",
+      "preview": "preview.gif",
       "cover": "cover.jpg",
       "config": "config.json",
       "entrypoint": "render.py",
@@ -180,7 +187,10 @@
         "相框掉落"
       ],
       "pace": "中快",
-      "display_number": false
+      "display_number": false,
+      "preview_video": "preview.mp4",
+      "preview_note": "动效预览",
+      "viewer": "index.html"
     },
     {
       "id": "motion-05",
@@ -212,10 +222,10 @@
       "editable_fields": "lines, names, pos, starts, colors",
       "used_in": null,
       "provenance": "项目试做；未确认进入成片",
-      "preview": "preview.mp4",
+      "preview": "preview.gif",
       "cover": "cover.jpg",
       "config": "config.json",
-      "entrypoint": "index.html",
+      "entrypoint": "scene.html",
       "summary": "弹窗由上到下错峰叠放，形成梯形后铺满画面。",
       "styles": [
         "浅色",
@@ -241,7 +251,10 @@
         "密集"
       ],
       "pace": "快",
-      "display_number": false
+      "display_number": false,
+      "preview_video": "preview.mp4",
+      "preview_note": "动效预览",
+      "viewer": "index.html"
     },
     {
       "id": "motion-17",
@@ -274,10 +287,10 @@
       "editable_fields": "video, audio, wave_audio, title, source_label, background, accent",
       "used_in": "工具榜单HappyHorse段",
       "provenance": "工具榜单HappyHorse段",
-      "preview": "preview.mp4",
+      "preview": "preview.gif",
       "cover": "cover.jpg",
       "config": "config.json",
-      "entrypoint": "index.html",
+      "entrypoint": "scene.html",
       "summary": "上方播放视频，下方展示真实音频波形和播放进度。",
       "styles": [
         "黑金",
@@ -301,7 +314,10 @@
         "试听"
       ],
       "pace": "随素材",
-      "display_number": false
+      "display_number": false,
+      "preview_video": "preview.mp4",
+      "preview_note": "动效主体预览，隐藏示例口播人物和字幕",
+      "viewer": "index.html"
     },
     {
       "id": "motion-26",
@@ -336,10 +352,10 @@
       "editable_fields": "wall_images, wall_opacity, avatar, foreground_frames, rise_frames, audio",
       "used_in": "工具榜单v10、LibTV结尾",
       "provenance": "工具榜单v10、LibTV结尾",
-      "preview": "preview.mp4",
+      "preview": "preview.gif",
       "cover": "cover.jpg",
       "config": "config.json",
-      "entrypoint": "index.html",
+      "entrypoint": "scene.html",
       "summary": "压暗的封面墙上，头像与关注贴纸一起升起，手指循环点击。",
       "styles": [
         "暗色",
@@ -363,7 +379,10 @@
         "订阅"
       ],
       "pace": "快入场后循环",
-      "display_number": false
+      "display_number": false,
+      "preview_video": "preview.mp4",
+      "preview_note": "动效预览",
+      "viewer": "index.html"
     },
     {
       "id": "motion-27",
@@ -396,7 +415,7 @@
       "editable_fields": "lines, photos, film_top, film_bottom, font, audio",
       "used_in": "联发集团原生高清结尾",
       "provenance": "联发集团原生高清结尾",
-      "preview": "preview.mp4",
+      "preview": "preview.gif",
       "cover": "cover.jpg",
       "config": "config.json",
       "entrypoint": "render.py",
@@ -427,7 +446,10 @@
         "结束"
       ],
       "pace": "舒缓",
-      "display_number": false
+      "display_number": false,
+      "preview_video": "preview.mp4",
+      "preview_note": "动效预览",
+      "viewer": "index.html"
     },
     {
       "id": "motion-32",
@@ -461,7 +483,7 @@
       "editable_fields": "text, width, height；目前只有参考，不是可直接渲染的文字模板",
       "used_in": null,
       "provenance": "参考01，原作者待补充",
-      "preview": "preview.mp4",
+      "preview": "preview.gif",
       "cover": "cover.jpg",
       "config": "config.json",
       "entrypoint": "index.html",
@@ -488,7 +510,10 @@
         "虚到实"
       ],
       "pace": "短促",
-      "display_number": false
+      "display_number": false,
+      "preview_video": "preview.mp4",
+      "preview_note": "参考片中的标题局部，尚未复刻",
+      "viewer": "index.html"
     }
   ]
 }

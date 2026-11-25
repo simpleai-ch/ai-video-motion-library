@@ -1,0 +1,121 @@
+{
+  "gif_count": 7,
+  "players": [
+    {
+      "effect": "快闪榜单开场",
+      "file_preview": "passed",
+      "scrub": "passed",
+      "live_preview": "passed"
+    },
+    {
+      "effect": "九宫格纪实开场",
+      "file_preview": "passed",
+      "scrub": "passed"
+    },
+    {
+      "effect": "梯形弹窗铺屏",
+      "file_preview": "passed",
+      "scrub": "passed",
+      "live_preview": "passed"
+    },
+    {
+      "effect": "视频与声音波形展示",
+      "file_preview": "passed",
+      "scrub": "passed",
+      "live_preview": "passed"
+    },
+    {
+      "effect": "照片墙关注结尾",
+      "file_preview": "passed",
+      "scrub": "passed",
+      "live_preview": "passed"
+    },
+    {
+      "effect": "胶片照片谢幕",
+      "file_preview": "passed",
+      "scrub": "passed"
+    },
+    {
+      "effect": "逐字聚焦标题",
+      "file_preview": "passed",
+      "scrub": "passed"
+    }
+  ],
+  "errors": [],
+  "gif_assets": [
+    {
+      "name": "快闪榜单开场",
+      "gif_bytes": 3755496,
+      "gif_stream": {
+        "width": 540,
+        "height": 695,
+        "duration": "5.200000",
+        "nb_frames": "52"
+      }
+    },
+    {
+      "name": "九宫格纪实开场",
+      "gif_bytes": 4859731,
+      "gif_stream": {
+        "width": 576,
+        "height": 324,
+        "duration": "7.380000",
+        "nb_frames": "59"
+      }
+    },
+    {
+      "name": "梯形弹窗铺屏",
+      "gif_bytes": 654626,
+      "gif_stream": {
+        "width": 432,
+        "height": 768,
+        "duration": "4.000000",
+        "nb_frames": "40"
+      }
+    },
+    {
+      "name": "视频与声音波形展示",
+      "gif_bytes": 923638,
+      "gif_stream": {
+        "width": 540,
+        "height": 695,
+        "duration": "9.510000",
+        "nb_frames": "76"
+      }
+    },
+    {
+      "name": "照片墙关注结尾",
+      "gif_bytes": 4905969,
+      "gif_stream": {
+        "width": 400,
+        "height": 711,
+        "duration": "4.510000",
+        "nb_frames": "36"
+      }
+    },
+    {
+      "name": "胶片照片谢幕",
+      "gif_bytes": 1926636,
+      "gif_stream": {
+        "width": 640,
+        "height": 360,
+        "duration": "3.600000",
+        "nb_frames": "36"
+      }
+    },
+    {
+      "name": "逐字聚焦标题",
+      "gif_bytes": 412662,
+      "gif_stream": {
+        "width": 640,
+        "height": 198,
+        "duration": "1.800000",
+        "nb_frames": "18"
+      }
+    }
+  ],
+  "render_entrypoint_smoke_test": [
+    "快闪榜单开场",
+    "照片墙关注结尾"
+  ]
+}

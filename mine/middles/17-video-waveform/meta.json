@@ -29,10 +29,10 @@
   "editable_fields": "video, audio, wave_audio, title, source_label, background, accent",
   "used_in": "工具榜单HappyHorse段",
   "provenance": "工具榜单HappyHorse段",
-  "preview": "preview.mp4",
+  "preview": "preview.gif",
   "cover": "cover.jpg",
   "config": "config.json",
-  "entrypoint": "index.html",
+  "entrypoint": "scene.html",
   "summary": "上方播放视频，下方展示真实音频波形和播放进度。",
   "styles": [
     "黑金",
@@ -56,5 +56,8 @@
     "试听"
   ],
   "pace": "随素材",
-  "display_number": false
+  "display_number": false,
+  "preview_video": "preview.mp4",
+  "preview_note": "动效主体预览，隐藏示例口播人物和字幕",
+  "viewer": "index.html"
 }

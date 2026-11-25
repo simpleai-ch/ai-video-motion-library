@@ -30,7 +30,7 @@
   "editable_fields": "cover, cover_crop, title, title_position, center_title, clips, audio, grid_lines",
   "used_in": "联发集团最终修订版",
   "provenance": "联发集团最终修订版",
-  "preview": "preview.mp4",
+  "preview": "preview.gif",
   "cover": "cover.jpg",
   "config": "config.json",
   "entrypoint": "render.py",
@@ -60,5 +60,8 @@
     "相框掉落"
   ],
   "pace": "中快",
-  "display_number": false
+  "display_number": false,
+  "preview_video": "preview.mp4",
+  "preview_note": "动效预览",
+  "viewer": "index.html"
 }

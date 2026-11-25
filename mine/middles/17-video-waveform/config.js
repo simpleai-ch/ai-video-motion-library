@@ -1,1 +1,1 @@
-window.MOTION_CONFIG={"motion_id":"17","engine":"browser","width":1080,"height":1920,"fps":30,"duration_frames":284,"video":"assets/video.mp4","audio":"assets/video.mp4","title":"视频与声音同步展示","source_label":"来源：HappyHorse","background":"#181710","accent":"#e6bf63"}
+window.MOTION_CONFIG={"motion_id": "17", "engine": "browser", "width": 1080, "height": 1920, "fps": 30, "duration_frames": 284, "video": "assets/video.mp4", "audio": "assets/video.mp4", "title": "视频与声音同步展示", "source_label": "来源：HappyHorse", "background": "#181710", "accent": "#e6bf63"};

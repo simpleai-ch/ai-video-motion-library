@@ -1,0 +1,22 @@
+<!doctype html><meta charset="utf-8"><title>AI与老板 · 信息弹窗</title><style>html,body{margin:0;background:#eeefed;overflow:hidden}canvas{width:100vw;height:100vh;object-fit:contain}</style><canvas id="c" width="1080" height="1920"></canvas><script src="config.js"></script><script>
+const c=document.querySelector('canvas'),ctx=c.getContext('2d');
+const lines=window.MOTION_CONFIG.lines;
+const names=window.MOTION_CONFIG.names;
+// Explicit layout: later cards intentionally overlap earlier ones.
+const pos=window.MOTION_CONFIG.pos;
+const colors=window.MOTION_CONFIG.colors;
+const starts=window.MOTION_CONFIG.starts;
+function rr(x,y,w,h,r){ctx.beginPath();ctx.roundRect(x,y,w,h,r)}
+const sprites=lines.map((line,i)=>{let a=document.createElement('canvas');a.width=750;a.height=210;let q=a.getContext('2d');const w=pos[i][2],h=116,x=48,y=28;
+q.shadowColor='rgba(55,53,45,.24)';q.shadowBlur=19;q.shadowOffsetY=12;q.fillStyle='#d6d6cf';q.beginPath();q.roundRect(x,y+5,w-30,h,22);q.fill();q.shadowOffsetY=7;q.shadowBlur=13;q.fillStyle='#fffefa';q.beginPath();q.roundRect(x,y,w-30,h,22);q.fill();q.shadowColor='transparent';
+q.strokeStyle='rgba(255,255,255,.95)';q.lineWidth=2;q.stroke();
+q.save();q.shadowColor='rgba(40,40,35,.22)';q.shadowBlur=10;q.shadowOffsetY=5;q.fillStyle='#fff';q.beginPath();q.arc(57,85,59,0,7);q.fill();q.shadowColor='transparent';q.beginPath();q.arc(57,85,51,0,7);q.clip();q.fillStyle=colors[i%8];q.fillRect(0,25,115,120);q.fillStyle=['#344457','#733f53','#f2e2cf','#3d6568'][i%4];q.beginPath();q.ellipse(57,144,46,43,0,0,7);q.fill();q.fillStyle='#f3ccb1';q.beginPath();q.ellipse(57,80,25,31,0,0,7);q.fill();q.fillStyle=['#30323d','#614335','#473b50'][i%3];q.beginPath();q.ellipse(57,58,28,20,0,Math.PI,7);q.fill();q.fillStyle='#34343d';q.fillRect(46,80,4,4);q.fillRect(66,80,4,4);q.restore();
+q.font='22px "Microsoft YaHei"';q.fillStyle='#85877e';q.fillText(names[i],132,61);q.font='bold 23px "Microsoft YaHei"';q.fillStyle='#383b36';let max=w-240,part='',row=0;for(const ch of line){if(q.measureText(part+ch).width>max){q.fillText(part,132,94+row*29);row++;part=''}part+=ch}q.fillText(part,132,94+row*29);
+q.fillStyle='#e51955';q.font='bold 38px Arial';q.fillText('♥',w-42,77);q.fillStyle='#62665d';q.font='16px Arial';q.textAlign='center';q.fillText(String(125+(i*137)%840),w-28,104);return a});
+const bg=document.createElement('canvas');bg.width=1080;bg.height=1920;let b=bg.getContext('2d');b.fillStyle='#efefeb';b.fillRect(0,0,1080,1920);let seed=42;for(let i=0;i<50000;i++){seed=(seed*1664525+1013904223)>>>0;let x=seed%1080;seed=(seed*1664525+1013904223)>>>0;let y=seed%1920;b.fillStyle=i%2?'rgba(95,95,80,.025)':'rgba(255,255,255,.2)';b.fillRect(x,y,2,2)}
+window.draw=function(t){ctx.drawImage(bg,0,0);for(let i=0;i<sprites.length;i++){let p=(t-starts[i])/.25;if(p<=0)continue;p=Math.min(1,p);let e=1-Math.pow(1-p,3),s=.06+.94*e;let [x,y,w]=pos[i];ctx.save();ctx.translate(x+w/2,y+86);ctx.scale(s,s);ctx.globalAlpha=Math.min(1,p*3.5);ctx.drawImage(sprites[i],-w/2-10,-86);ctx.restore()}};draw(0);let playing=false;window.play=()=>{playing=true;let start=performance.now();function tick(now){if(!playing)return;draw(((now-start)/1000)%4);requestAnimationFrame(tick)}requestAnimationFrame(tick)};document.body.onclick=play;window.MOTION_READY=true;
+</script>
+
+
+
+<script src="/tools/play.js"></script>

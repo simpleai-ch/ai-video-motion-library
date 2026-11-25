@@ -30,10 +30,10 @@
   "editable_fields": "items, heading, subheading, captions, presenter, show_presenter, audio, timing",
   "used_in": "工具榜单v10",
   "provenance": "工具榜单v10",
-  "preview": "preview.mp4",
+  "preview": "preview.gif",
   "cover": "cover.jpg",
   "config": "config.json",
-  "entrypoint": "index.html",
+  "entrypoint": "scene.html",
   "summary": "短促换画、编号强调，随后卡片归位；适合有多组素材的盘点开场。",
   "styles": [
     "黑金",
@@ -56,5 +56,8 @@
     "冲击力"
   ],
   "pace": "快",
-  "display_number": false
+  "display_number": false,
+  "preview_video": "preview.mp4",
+  "preview_note": "动效主体预览，隐藏示例口播人物和字幕",
+  "viewer": "index.html"
 }
